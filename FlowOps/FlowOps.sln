@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.API", "FlowOps.API\FlowOps.API.csproj", "{770DD55C-E51C-4B64-8FAC-1A3227139C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.MemoryService.Client", "FlowOps.MemoryService.Client\FlowOps.MemoryService.Client.csproj", "{84EB6541-9863-47C7-95AF-A28D5E5F6324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.WorkFlowService.Client", "FlowOps.WorkFlowService.Client\FlowOps.WorkFlowService.Client.csproj", "{F6416C90-169A-48FD-9AA6-076D8F86256C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.Models", "FlowOps.Models\FlowOps.Models.csproj", "{E110FC99-3F3B-48E6-A193-1AB40E73BED3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.Business", "FlowOps.Business\FlowOps.Business.csproj", "{FA97C1B0-8742-4013-832C-7AC14F33FB0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{770DD55C-E51C-4B64-8FAC-1A3227139C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770DD55C-E51C-4B64-8FAC-1A3227139C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770DD55C-E51C-4B64-8FAC-1A3227139C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770DD55C-E51C-4B64-8FAC-1A3227139C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84EB6541-9863-47C7-95AF-A28D5E5F6324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84EB6541-9863-47C7-95AF-A28D5E5F6324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84EB6541-9863-47C7-95AF-A28D5E5F6324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84EB6541-9863-47C7-95AF-A28D5E5F6324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6416C90-169A-48FD-9AA6-076D8F86256C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6416C90-169A-48FD-9AA6-076D8F86256C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6416C90-169A-48FD-9AA6-076D8F86256C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6416C90-169A-48FD-9AA6-076D8F86256C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E110FC99-3F3B-48E6-A193-1AB40E73BED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E110FC99-3F3B-48E6-A193-1AB40E73BED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E110FC99-3F3B-48E6-A193-1AB40E73BED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E110FC99-3F3B-48E6-A193-1AB40E73BED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA97C1B0-8742-4013-832C-7AC14F33FB0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA97C1B0-8742-4013-832C-7AC14F33FB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA97C1B0-8742-4013-832C-7AC14F33FB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA97C1B0-8742-4013-832C-7AC14F33FB0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
