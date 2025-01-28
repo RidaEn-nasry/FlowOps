@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlowOps.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20e716af4dc5d6c149ee35e0d7c8391e3254ffe5")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlowOps.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlowOps.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

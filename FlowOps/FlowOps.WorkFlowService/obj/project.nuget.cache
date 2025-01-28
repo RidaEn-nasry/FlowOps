@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4usy/vBleqU=",
+  "success": true,
+  "projectFilePath": "/Users/wa5ina/fun/flow/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.csproj",
+  "expectedPackageFiles": [
+    "/Users/wa5ina/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0-rc.2.24474.3/microsoft.aspnetcore.openapi.9.0.0-rc.2.24474.3.nupkg.sha512",
+    "/Users/wa5ina/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
