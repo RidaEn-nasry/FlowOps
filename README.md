@@ -1,6 +1,6 @@
 
 FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple Python scripts.
-It’s LLM-native, meaning your agents can think, decide, and take action on their own—or be semi-agentic by letting define their workflow decisions
+It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
 
 # 💪 Why FlowOps? 
 🔹 Write workflows in simple Python scripts – Infinite flexibility, no restrictive UI.
