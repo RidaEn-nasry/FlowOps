@@ -283,16 +283,6 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
-      },
-      "FlowOps.GateWay.Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/FlowOps.GateWay.Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FlowOps.GateWay.Models.dll": {}
-        }
       }
     }
   },
@@ -767,16 +757,10 @@
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "FlowOps.GateWay.Models/1.0.0": {
-      "type": "project",
-      "path": "../FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj",
-      "msbuildProject": "../FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FlowOps.GateWay.Models >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 9.0.1",
       "Microsoft.Extensions.Http >= 9.0.1"
     ]
@@ -806,11 +790,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "IK4POD1AYwO8Izv7YamW9+XR+vxNw1l67jrkNHMp7kc=",
-  "Source": "FlowOps.API",
-  "BasePath": "_content/FlowOps.API",
+  "Hash": "VIgPKtFoQUqqazljqZ8JSMJbzOMYuNpkEXgi5EMeCvg=",
+  "Source": "FlowOps.GateWay.API",
+  "BasePath": "_content/FlowOps.GateWay.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

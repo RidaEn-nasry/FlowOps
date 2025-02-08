@@ -1,9 +1,9 @@
 
 
-using FlowOps.Models.FlowOps.API.Models.Responses;
+using FlowOps.GateWay.Models.Responses;
 using MediatR;
 
-namespace FlowOps.GateWay.API.Queries;
+namespace FlowOps.GateWay.Business.Queries;
 
 public record GetWorkQuery(string Id) : IRequest<GetWorkFlowResponse>;
 

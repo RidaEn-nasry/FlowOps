@@ -1,8 +1,9 @@
-using FlowOps.WorkFlowService.Client.Extensions;
-using FlowOps.MemoryService.Client.Extensions;
-using FlowOps.GateWay.API.Extensions;
-using FlowOps.GateWay.API.Commands;
-using FlowOps.GateWay.API.Mapper;
+
+using FlowOps.GateWay.Business.Commands;
+using FlowOps.GateWay.Business.Extensions;
+using FlowOps.GateWay.Business.Mapper;
+using FlowOps.GateWay.MemoryService.Client.Extensions;
+using FlowOps.GateWay.WorkFlowService.Client.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure service client
-
-builder.Services.AddWorkflowService(builder.Configuration);
-builder.Services.AddMemoryService(builder.Configuration);
+// Configure service clients
+builder.Services.AddWorkflowServiceClient(builder.Configuration);
+builder.Services.AddMemoryServiceClient(builder.Configuration);
 
 builder.Services.AddBusiness();
 

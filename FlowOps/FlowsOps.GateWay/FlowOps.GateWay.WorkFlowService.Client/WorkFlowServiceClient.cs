@@ -1,4 +1,4 @@
-using FlowOps.WorkFlowService.Client.Models;
+using FlowOps.GateWay.WorkFlowService.Client.Models;
 
 namespace FlowOps.GateWay.WorkFlowService.Client;
 
@@ -21,7 +21,7 @@ public class WorkFlowServiceClient : IWorkFlowServiceClient
         throw new NotImplementedException();
     }
 
-    public Task<WorkFlowModel> CreateWorkflowAsync(CreateWorkflowRequest request)
+    public Task<WorkFlowBase> CreateWorkflowAsync(CreateWorkflowRequest request)
     {
         throw new NotImplementedException();
     }

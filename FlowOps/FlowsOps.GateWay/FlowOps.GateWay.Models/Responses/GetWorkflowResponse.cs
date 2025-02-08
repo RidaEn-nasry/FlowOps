@@ -1,7 +1,7 @@
 
 namespace FlowOps.GateWay.Models.Responses;
 
-public class GetWorkFlowResponse : WorkFlowModel
+public class GetWorkFlowResponse : WorkFlowBase
 {
 }
 

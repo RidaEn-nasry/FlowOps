@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlowOps.GateWay.MemoryService.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13ddf54f65806e360ef764860a7e3b06c4bac014")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7eac4a21488f45805026f55e6f0f8e24617323d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlowOps.GateWay.MemoryService.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlowOps.GateWay.MemoryService.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

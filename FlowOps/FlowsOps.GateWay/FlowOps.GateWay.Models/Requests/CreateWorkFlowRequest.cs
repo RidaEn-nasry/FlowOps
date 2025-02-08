@@ -1,6 +1,6 @@
 
 namespace FlowOps.GateWay.Models.Requests;
-public class CreateWorkFlowRequest : WorkFlowModel
+public class CreateWorkFlowRequest : WorkFlowBase
 {
 }
 

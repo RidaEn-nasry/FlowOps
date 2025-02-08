@@ -1,0 +1,13 @@
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.csproj.AssemblyReference.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.GeneratedMSBuildEditorConfig.editorconfig
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.AssemblyInfoInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.AssemblyInfo.cs
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.csproj.CoreCompileInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.sourcelink.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/bin/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.deps.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/bin/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/bin/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/refint/FlowOps.GateWay.WorkFlowService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/FlowOps.GateWay.WorkFlowService.Client.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/obj/Debug/net8.0/ref/FlowOps.GateWay.WorkFlowService.Client.dll

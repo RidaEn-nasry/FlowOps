@@ -1,7 +1,5 @@
 
 
-using FlowOps.GateWay.API.Commands;
-using FlowOps.GateWay.API.Queries;
 using FlowOps.GateWay.Business.Commands;
 using FlowOps.GateWay.Models.Requests;
 using FlowOps.GateWay.Models.Responses;

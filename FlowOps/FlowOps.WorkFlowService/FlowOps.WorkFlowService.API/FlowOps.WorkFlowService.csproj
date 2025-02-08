@@ -13,4 +13,9 @@
     <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlowOps.WorkFlowService.DataLayer\FlowOps.WorkFlowService.DataLayer.csproj" />
+  </ItemGroup>
+
 </Project>

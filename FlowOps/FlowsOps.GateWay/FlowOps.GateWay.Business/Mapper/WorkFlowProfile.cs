@@ -10,6 +10,5 @@ public class  WorkFlowProfile : Profile
     public WorkFlowProfile()
     {
         CreateMap<CreateWorkFlowRequest, CreateWorkflowRequest>();
-        CreateMap<WorkFlowService.Client.Models.WorkFlowModel, Models.WorkFlowModel>();
     }
 }

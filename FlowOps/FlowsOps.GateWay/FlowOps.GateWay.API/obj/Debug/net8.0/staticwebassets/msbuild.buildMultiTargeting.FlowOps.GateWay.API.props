@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/FlowOps.GateWay.API.props" />
+</Project>

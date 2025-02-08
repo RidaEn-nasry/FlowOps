@@ -1,7 +1,8 @@
 
+
 namespace FlowOps.GateWay.WorkFlowService.Client.Models;
 
-public class UpdateWorkflowRequest : WorkFlowModel
+public class UpdateWorkflowRequest : WorkFlowBase
 {
 }
 

@@ -313,11 +313,7 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {
-              "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj": {
-                "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

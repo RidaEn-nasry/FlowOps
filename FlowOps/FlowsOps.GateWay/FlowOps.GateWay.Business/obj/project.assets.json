@@ -358,7 +358,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "FlowOps.GateWay.Models": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "9.0.1",
           "Microsoft.Extensions.Http": "9.0.1"
         },
