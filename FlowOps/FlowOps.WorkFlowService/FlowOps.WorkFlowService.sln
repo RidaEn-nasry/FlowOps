@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.WorkFlowService", "FlowOps.WorkFlowService.API\FlowOps.WorkFlowService.csproj", "{13EB9C11-57D5-4D81-9588-A9249652D92D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13EB9C11-57D5-4D81-9588-A9249652D92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EB9C11-57D5-4D81-9588-A9249652D92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EB9C11-57D5-4D81-9588-A9249652D92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EB9C11-57D5-4D81-9588-A9249652D92D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

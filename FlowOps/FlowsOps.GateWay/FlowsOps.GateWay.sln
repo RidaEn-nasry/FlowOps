@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.GateWay.API", "FlowOps.GateWay.API\FlowOps.GateWay.API.csproj", "{54B5C6EF-F22E-4B05-AF1C-1FDF11395C50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.GateWay.Models", "FlowOps.GateWay.Models\FlowOps.GateWay.Models.csproj", "{DD48AC81-F115-4DD2-A272-77AE43CAB71D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.GateWay.MemoryService.Client", "FlowOps.GateWay.MemoryService.Client\FlowOps.GateWay.MemoryService.Client.csproj", "{DA97A19B-6A57-4F50-B673-B8502C3E3C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.GateWay.Business", "FlowOps.GateWay.Business\FlowOps.GateWay.Business.csproj", "{1232B39E-E45A-4F10-8E82-0714E939F507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowOps.GateWay.WorkFlowService.Client", "FlowOps.GateWay.WorkFlowService.Client\FlowOps.GateWay.WorkFlowService.Client.csproj", "{5D93E84F-165D-494F-B450-495D19A72F4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54B5C6EF-F22E-4B05-AF1C-1FDF11395C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B5C6EF-F22E-4B05-AF1C-1FDF11395C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B5C6EF-F22E-4B05-AF1C-1FDF11395C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B5C6EF-F22E-4B05-AF1C-1FDF11395C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD48AC81-F115-4DD2-A272-77AE43CAB71D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD48AC81-F115-4DD2-A272-77AE43CAB71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD48AC81-F115-4DD2-A272-77AE43CAB71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD48AC81-F115-4DD2-A272-77AE43CAB71D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA97A19B-6A57-4F50-B673-B8502C3E3C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA97A19B-6A57-4F50-B673-B8502C3E3C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA97A19B-6A57-4F50-B673-B8502C3E3C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA97A19B-6A57-4F50-B673-B8502C3E3C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1232B39E-E45A-4F10-8E82-0714E939F507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1232B39E-E45A-4F10-8E82-0714E939F507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1232B39E-E45A-4F10-8E82-0714E939F507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1232B39E-E45A-4F10-8E82-0714E939F507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D93E84F-165D-494F-B450-495D19A72F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D93E84F-165D-494F-B450-495D19A72F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D93E84F-165D-494F-B450-495D19A72F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D93E84F-165D-494F-B450-495D19A72F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

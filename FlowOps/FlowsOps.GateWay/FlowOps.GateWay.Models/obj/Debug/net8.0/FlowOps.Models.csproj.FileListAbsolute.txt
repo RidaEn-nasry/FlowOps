@@ -1,0 +1,12 @@
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.GeneratedMSBuildEditorConfig.editorconfig
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.AssemblyInfoInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.AssemblyInfo.cs
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.csproj.CoreCompileInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.sourcelink.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/bin/Debug/net8.0/FlowOps.Models.deps.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/bin/Debug/net8.0/FlowOps.Models.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/bin/Debug/net8.0/FlowOps.Models.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/refint/FlowOps.Models.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/FlowOps.Models.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.Models/obj/Debug/net8.0/ref/FlowOps.Models.dll

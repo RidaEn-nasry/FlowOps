@@ -1,0 +1,13 @@
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/bin/Debug/net8.0/FlowOps.MemoryService.Client.deps.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/bin/Debug/net8.0/FlowOps.MemoryService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/bin/Debug/net8.0/FlowOps.MemoryService.Client.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.csproj.AssemblyReference.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.GeneratedMSBuildEditorConfig.editorconfig
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.AssemblyInfoInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.AssemblyInfo.cs
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.csproj.CoreCompileInputs.cache
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.sourcelink.json
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/refint/FlowOps.MemoryService.Client.dll
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/FlowOps.MemoryService.Client.pdb
+/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.MemoryService.Client/obj/Debug/net8.0/ref/FlowOps.MemoryService.Client.dll
