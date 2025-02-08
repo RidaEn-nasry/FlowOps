@@ -15,10 +15,8 @@ public static class DataLayerExtensions
     {
         services.Configure<MongoDbConfig>(
             configuration.GetSection("Database"));
-
-        services.AddSingleton<DataContext>();
+        services.AddSingleton<DataBaseContext>();
         services.AddScoped<IWorkFlowRepository, WorkflowRepository>();
-        
         return services;
     }
 }   

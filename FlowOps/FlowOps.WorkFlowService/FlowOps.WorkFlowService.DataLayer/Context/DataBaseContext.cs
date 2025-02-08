@@ -4,12 +4,12 @@ using Microsoft.Extensions.Options;
 
 namespace FlowOps.WorkFlowService.DataLayer.Context;
 
-public class DataContext
+public class DataBaseContext
 {
     private readonly IMongoDatabase _database;
     private readonly IMongoClient _client;
 
-    public DataContext(IOptions<MongoDbConfig> configuration)
+    public DataBaseContext(IOptions<MongoDbConfig> configuration)
     {
         _client = new MongoClient(configuration.Value.ConnectionString);
         _database = _client.GetDatabase(configuration.Value.DatabaseName);
@@ -19,4 +19,5 @@ public class DataContext
     {
         return _database.GetCollection<T>(name);
     }
+
 }

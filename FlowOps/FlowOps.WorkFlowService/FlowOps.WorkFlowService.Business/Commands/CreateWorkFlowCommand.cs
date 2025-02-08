@@ -1,11 +1,8 @@
 
 
-
-using FlowOps.WorkFlowService.DataLayer.Domain;
 using FlowOps.WorkFlowService.Models.Responses;
 using MediatR;
-
-namespace FlowOps.WorkFlowService.Commands;
+namespace FlowOps.WorkFlowService.Business.Commands;
 
 public record CreateWorkFlowCommand(string Name, string Script) : IRequest<CreateWorkFlowResponse>;
 
@@ -13,11 +10,10 @@ public class CreateWorkFlowCommandHandler : IRequestHandler<CreateWorkFlowComman
 {
     public CreateWorkFlowCommandHandler()
     {
-
     }
+
     public async Task<CreateWorkFlowResponse> Handle(CreateWorkFlowCommand request, CancellationToken cancellationToken)
     {
-        var workflow = new Workflow(request.Name, request.Script);
-        
+        throw new NotImplementedException();
     }
 }

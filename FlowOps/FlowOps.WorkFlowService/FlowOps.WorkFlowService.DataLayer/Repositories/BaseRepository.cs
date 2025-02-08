@@ -9,12 +9,10 @@ public class BaseRepository<T> : IRepository<T> where T : BaseEntity
 {
     private readonly IMongoCollection<T> _collection;
 
-    public BaseRepository(DataContext context)
+    public BaseRepository(DataBaseContext context)
     {
         _collection = context.GetCollection<T>(typeof(T).Name.ToLower());
     }
-
-
 
     public async Task<T> GetById(Guid id)
     {
@@ -56,4 +54,5 @@ public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
         return await _collection.Find(predicate).ToListAsync();
     }
+
 } 

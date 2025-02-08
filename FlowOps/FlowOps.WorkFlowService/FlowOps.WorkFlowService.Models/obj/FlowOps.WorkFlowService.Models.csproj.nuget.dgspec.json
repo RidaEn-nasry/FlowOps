@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj": {}
+    "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj": {}
   },
   "projects": {
-    "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj": {
+    "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj",
-        "projectName": "FlowOps.WorkFlowService.DataLayer",
-        "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj",
+        "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj",
+        "projectName": "FlowOps.WorkFlowService.Models",
+        "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj",
         "packagesPath": "/Users/ren-nasr/.nuget/packages/",
-        "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/obj/",
+        "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/goinfre/ren-nasr/FlowOps/FlowOps/NuGet.Config",
@@ -43,24 +43,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "MediatR": {
-              "target": "Package",
-              "version": "[12.4.1, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "Microsoft.Extensions.Http": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[3.1.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

@@ -5,7 +5,7 @@ namespace FlowOps.WorkFlowService.DataLayer.Repositories;
 
 public class WorkflowRepository : BaseRepository<Workflow>, IWorkFlowRepository
 {
-    public WorkflowRepository(DataContext context) : base(context)
+    public WorkflowRepository(DataBaseContext context) : base(context)
     {
     }
 

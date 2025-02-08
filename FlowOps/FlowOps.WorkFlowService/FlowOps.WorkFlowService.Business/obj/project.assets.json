@@ -2,22 +2,6 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "AutoMapper/13.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/AutoMapper.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/AutoMapper.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "DnsClient/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -62,36 +46,6 @@
           "lib/netstandard2.0/MediatR.Contracts.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "Microsoft.AspNetCore.OpenApi/8.0.12": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.OpenApi": "1.4.3"
-        },
-        "compile": {
-          "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
       "Microsoft.Extensions.Configuration/9.0.1": {
@@ -362,19 +316,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.OpenApi/1.4.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -458,69 +399,6 @@
             "related": ".xml"
           }
         }
-      },
-      "Swashbuckle.AspNetCore/6.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
-          "Swashbuckle.AspNetCore.Swagger": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0"
-        },
-        "build": {
-          "build/Swashbuckle.AspNetCore.props": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.Swagger/6.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.OpenApi": "1.2.3"
-        },
-        "compile": {
-          "lib/net7.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Swashbuckle.AspNetCore.SwaggerGen/6.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "6.5.0"
-        },
-        "compile": {
-          "lib/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerUI/6.5.0": {
-        "type": "package",
-        "compile": {
-          "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -631,21 +509,6 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
-      "FlowOps.WorkFlowService.Business/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "FlowOps.WorkFlowService.DataLayer": "1.0.0",
-          "FlowOps.WorkFlowService.Models": "1.0.0",
-          "MediatR": "12.4.1"
-        },
-        "compile": {
-          "bin/placeholder/FlowOps.WorkFlowService.Business.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FlowOps.WorkFlowService.Business.dll": {}
-        }
-      },
       "FlowOps.WorkFlowService.DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -675,21 +538,6 @@
     }
   },
   "libraries": {
-    "AutoMapper/13.0.1": {
-      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
-      "type": "package",
-      "path": "automapper/13.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "automapper.13.0.1.nupkg.sha512",
-        "automapper.nuspec",
-        "icon.png",
-        "lib/net6.0/AutoMapper.dll",
-        "lib/net6.0/AutoMapper.xml"
-      ]
-    },
     "DnsClient/1.6.1": {
       "sha512": "4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
       "type": "package",
@@ -743,252 +591,6 @@
         "lib/netstandard2.0/MediatR.Contracts.xml",
         "mediatr.contracts.2.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.OpenApi/8.0.12": {
-      "sha512": "ethhl6H45KrU7d8FRFBKAaJpMKdy2nJwG7j3XSt1b4o+H6saDr+2NQpEMIB1QTHxsrB2Un4C+j01PT5b75kOYQ==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.openapi/8.0.12",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll",
-        "lib/net8.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.8.0.12.nupkg.sha512",
-        "microsoft.aspnetcore.openapi.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
-      "sha512": "Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
-      "type": "package",
-      "path": "microsoft.extensions.apidescription.server/6.0.5",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "build/Microsoft.Extensions.ApiDescription.Server.props",
-        "build/Microsoft.Extensions.ApiDescription.Server.targets",
-        "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props",
-        "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets",
-        "microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-        "microsoft.extensions.apidescription.server.nuspec",
-        "tools/Newtonsoft.Json.dll",
-        "tools/dotnet-getdocument.deps.json",
-        "tools/dotnet-getdocument.dll",
-        "tools/dotnet-getdocument.runtimeconfig.json",
-        "tools/net461-x86/GetDocument.Insider.exe",
-        "tools/net461-x86/GetDocument.Insider.exe.config",
-        "tools/net461-x86/Microsoft.Win32.Primitives.dll",
-        "tools/net461-x86/System.AppContext.dll",
-        "tools/net461-x86/System.Buffers.dll",
-        "tools/net461-x86/System.Collections.Concurrent.dll",
-        "tools/net461-x86/System.Collections.NonGeneric.dll",
-        "tools/net461-x86/System.Collections.Specialized.dll",
-        "tools/net461-x86/System.Collections.dll",
-        "tools/net461-x86/System.ComponentModel.EventBasedAsync.dll",
-        "tools/net461-x86/System.ComponentModel.Primitives.dll",
-        "tools/net461-x86/System.ComponentModel.TypeConverter.dll",
-        "tools/net461-x86/System.ComponentModel.dll",
-        "tools/net461-x86/System.Console.dll",
-        "tools/net461-x86/System.Data.Common.dll",
-        "tools/net461-x86/System.Diagnostics.Contracts.dll",
-        "tools/net461-x86/System.Diagnostics.Debug.dll",
-        "tools/net461-x86/System.Diagnostics.DiagnosticSource.dll",
-        "tools/net461-x86/System.Diagnostics.FileVersionInfo.dll",
-        "tools/net461-x86/System.Diagnostics.Process.dll",
-        "tools/net461-x86/System.Diagnostics.StackTrace.dll",
-        "tools/net461-x86/System.Diagnostics.TextWriterTraceListener.dll",
-        "tools/net461-x86/System.Diagnostics.Tools.dll",
-        "tools/net461-x86/System.Diagnostics.TraceSource.dll",
-        "tools/net461-x86/System.Diagnostics.Tracing.dll",
-        "tools/net461-x86/System.Drawing.Primitives.dll",
-        "tools/net461-x86/System.Dynamic.Runtime.dll",
-        "tools/net461-x86/System.Globalization.Calendars.dll",
-        "tools/net461-x86/System.Globalization.Extensions.dll",
-        "tools/net461-x86/System.Globalization.dll",
-        "tools/net461-x86/System.IO.Compression.ZipFile.dll",
-        "tools/net461-x86/System.IO.Compression.dll",
-        "tools/net461-x86/System.IO.FileSystem.DriveInfo.dll",
-        "tools/net461-x86/System.IO.FileSystem.Primitives.dll",
-        "tools/net461-x86/System.IO.FileSystem.Watcher.dll",
-        "tools/net461-x86/System.IO.FileSystem.dll",
-        "tools/net461-x86/System.IO.IsolatedStorage.dll",
-        "tools/net461-x86/System.IO.MemoryMappedFiles.dll",
-        "tools/net461-x86/System.IO.Pipes.dll",
-        "tools/net461-x86/System.IO.UnmanagedMemoryStream.dll",
-        "tools/net461-x86/System.IO.dll",
-        "tools/net461-x86/System.Linq.Expressions.dll",
-        "tools/net461-x86/System.Linq.Parallel.dll",
-        "tools/net461-x86/System.Linq.Queryable.dll",
-        "tools/net461-x86/System.Linq.dll",
-        "tools/net461-x86/System.Memory.dll",
-        "tools/net461-x86/System.Net.Http.dll",
-        "tools/net461-x86/System.Net.NameResolution.dll",
-        "tools/net461-x86/System.Net.NetworkInformation.dll",
-        "tools/net461-x86/System.Net.Ping.dll",
-        "tools/net461-x86/System.Net.Primitives.dll",
-        "tools/net461-x86/System.Net.Requests.dll",
-        "tools/net461-x86/System.Net.Security.dll",
-        "tools/net461-x86/System.Net.Sockets.dll",
-        "tools/net461-x86/System.Net.WebHeaderCollection.dll",
-        "tools/net461-x86/System.Net.WebSockets.Client.dll",
-        "tools/net461-x86/System.Net.WebSockets.dll",
-        "tools/net461-x86/System.Numerics.Vectors.dll",
-        "tools/net461-x86/System.ObjectModel.dll",
-        "tools/net461-x86/System.Reflection.Extensions.dll",
-        "tools/net461-x86/System.Reflection.Primitives.dll",
-        "tools/net461-x86/System.Reflection.dll",
-        "tools/net461-x86/System.Resources.Reader.dll",
-        "tools/net461-x86/System.Resources.ResourceManager.dll",
-        "tools/net461-x86/System.Resources.Writer.dll",
-        "tools/net461-x86/System.Runtime.CompilerServices.Unsafe.dll",
-        "tools/net461-x86/System.Runtime.CompilerServices.VisualC.dll",
-        "tools/net461-x86/System.Runtime.Extensions.dll",
-        "tools/net461-x86/System.Runtime.Handles.dll",
-        "tools/net461-x86/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "tools/net461-x86/System.Runtime.InteropServices.dll",
-        "tools/net461-x86/System.Runtime.Numerics.dll",
-        "tools/net461-x86/System.Runtime.Serialization.Formatters.dll",
-        "tools/net461-x86/System.Runtime.Serialization.Json.dll",
-        "tools/net461-x86/System.Runtime.Serialization.Primitives.dll",
-        "tools/net461-x86/System.Runtime.Serialization.Xml.dll",
-        "tools/net461-x86/System.Runtime.dll",
-        "tools/net461-x86/System.Security.Claims.dll",
-        "tools/net461-x86/System.Security.Cryptography.Algorithms.dll",
-        "tools/net461-x86/System.Security.Cryptography.Csp.dll",
-        "tools/net461-x86/System.Security.Cryptography.Encoding.dll",
-        "tools/net461-x86/System.Security.Cryptography.Primitives.dll",
-        "tools/net461-x86/System.Security.Cryptography.X509Certificates.dll",
-        "tools/net461-x86/System.Security.Principal.dll",
-        "tools/net461-x86/System.Security.SecureString.dll",
-        "tools/net461-x86/System.Text.Encoding.Extensions.dll",
-        "tools/net461-x86/System.Text.Encoding.dll",
-        "tools/net461-x86/System.Text.RegularExpressions.dll",
-        "tools/net461-x86/System.Threading.Overlapped.dll",
-        "tools/net461-x86/System.Threading.Tasks.Parallel.dll",
-        "tools/net461-x86/System.Threading.Tasks.dll",
-        "tools/net461-x86/System.Threading.Thread.dll",
-        "tools/net461-x86/System.Threading.ThreadPool.dll",
-        "tools/net461-x86/System.Threading.Timer.dll",
-        "tools/net461-x86/System.Threading.dll",
-        "tools/net461-x86/System.ValueTuple.dll",
-        "tools/net461-x86/System.Xml.ReaderWriter.dll",
-        "tools/net461-x86/System.Xml.XDocument.dll",
-        "tools/net461-x86/System.Xml.XPath.XDocument.dll",
-        "tools/net461-x86/System.Xml.XPath.dll",
-        "tools/net461-x86/System.Xml.XmlDocument.dll",
-        "tools/net461-x86/System.Xml.XmlSerializer.dll",
-        "tools/net461-x86/netstandard.dll",
-        "tools/net461/GetDocument.Insider.exe",
-        "tools/net461/GetDocument.Insider.exe.config",
-        "tools/net461/Microsoft.Win32.Primitives.dll",
-        "tools/net461/System.AppContext.dll",
-        "tools/net461/System.Buffers.dll",
-        "tools/net461/System.Collections.Concurrent.dll",
-        "tools/net461/System.Collections.NonGeneric.dll",
-        "tools/net461/System.Collections.Specialized.dll",
-        "tools/net461/System.Collections.dll",
-        "tools/net461/System.ComponentModel.EventBasedAsync.dll",
-        "tools/net461/System.ComponentModel.Primitives.dll",
-        "tools/net461/System.ComponentModel.TypeConverter.dll",
-        "tools/net461/System.ComponentModel.dll",
-        "tools/net461/System.Console.dll",
-        "tools/net461/System.Data.Common.dll",
-        "tools/net461/System.Diagnostics.Contracts.dll",
-        "tools/net461/System.Diagnostics.Debug.dll",
-        "tools/net461/System.Diagnostics.DiagnosticSource.dll",
-        "tools/net461/System.Diagnostics.FileVersionInfo.dll",
-        "tools/net461/System.Diagnostics.Process.dll",
-        "tools/net461/System.Diagnostics.StackTrace.dll",
-        "tools/net461/System.Diagnostics.TextWriterTraceListener.dll",
-        "tools/net461/System.Diagnostics.Tools.dll",
-        "tools/net461/System.Diagnostics.TraceSource.dll",
-        "tools/net461/System.Diagnostics.Tracing.dll",
-        "tools/net461/System.Drawing.Primitives.dll",
-        "tools/net461/System.Dynamic.Runtime.dll",
-        "tools/net461/System.Globalization.Calendars.dll",
-        "tools/net461/System.Globalization.Extensions.dll",
-        "tools/net461/System.Globalization.dll",
-        "tools/net461/System.IO.Compression.ZipFile.dll",
-        "tools/net461/System.IO.Compression.dll",
-        "tools/net461/System.IO.FileSystem.DriveInfo.dll",
-        "tools/net461/System.IO.FileSystem.Primitives.dll",
-        "tools/net461/System.IO.FileSystem.Watcher.dll",
-        "tools/net461/System.IO.FileSystem.dll",
-        "tools/net461/System.IO.IsolatedStorage.dll",
-        "tools/net461/System.IO.MemoryMappedFiles.dll",
-        "tools/net461/System.IO.Pipes.dll",
-        "tools/net461/System.IO.UnmanagedMemoryStream.dll",
-        "tools/net461/System.IO.dll",
-        "tools/net461/System.Linq.Expressions.dll",
-        "tools/net461/System.Linq.Parallel.dll",
-        "tools/net461/System.Linq.Queryable.dll",
-        "tools/net461/System.Linq.dll",
-        "tools/net461/System.Memory.dll",
-        "tools/net461/System.Net.Http.dll",
-        "tools/net461/System.Net.NameResolution.dll",
-        "tools/net461/System.Net.NetworkInformation.dll",
-        "tools/net461/System.Net.Ping.dll",
-        "tools/net461/System.Net.Primitives.dll",
-        "tools/net461/System.Net.Requests.dll",
-        "tools/net461/System.Net.Security.dll",
-        "tools/net461/System.Net.Sockets.dll",
-        "tools/net461/System.Net.WebHeaderCollection.dll",
-        "tools/net461/System.Net.WebSockets.Client.dll",
-        "tools/net461/System.Net.WebSockets.dll",
-        "tools/net461/System.Numerics.Vectors.dll",
-        "tools/net461/System.ObjectModel.dll",
-        "tools/net461/System.Reflection.Extensions.dll",
-        "tools/net461/System.Reflection.Primitives.dll",
-        "tools/net461/System.Reflection.dll",
-        "tools/net461/System.Resources.Reader.dll",
-        "tools/net461/System.Resources.ResourceManager.dll",
-        "tools/net461/System.Resources.Writer.dll",
-        "tools/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "tools/net461/System.Runtime.CompilerServices.VisualC.dll",
-        "tools/net461/System.Runtime.Extensions.dll",
-        "tools/net461/System.Runtime.Handles.dll",
-        "tools/net461/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "tools/net461/System.Runtime.InteropServices.dll",
-        "tools/net461/System.Runtime.Numerics.dll",
-        "tools/net461/System.Runtime.Serialization.Formatters.dll",
-        "tools/net461/System.Runtime.Serialization.Json.dll",
-        "tools/net461/System.Runtime.Serialization.Primitives.dll",
-        "tools/net461/System.Runtime.Serialization.Xml.dll",
-        "tools/net461/System.Runtime.dll",
-        "tools/net461/System.Security.Claims.dll",
-        "tools/net461/System.Security.Cryptography.Algorithms.dll",
-        "tools/net461/System.Security.Cryptography.Csp.dll",
-        "tools/net461/System.Security.Cryptography.Encoding.dll",
-        "tools/net461/System.Security.Cryptography.Primitives.dll",
-        "tools/net461/System.Security.Cryptography.X509Certificates.dll",
-        "tools/net461/System.Security.Principal.dll",
-        "tools/net461/System.Security.SecureString.dll",
-        "tools/net461/System.Text.Encoding.Extensions.dll",
-        "tools/net461/System.Text.Encoding.dll",
-        "tools/net461/System.Text.RegularExpressions.dll",
-        "tools/net461/System.Threading.Overlapped.dll",
-        "tools/net461/System.Threading.Tasks.Parallel.dll",
-        "tools/net461/System.Threading.Tasks.dll",
-        "tools/net461/System.Threading.Thread.dll",
-        "tools/net461/System.Threading.ThreadPool.dll",
-        "tools/net461/System.Threading.Timer.dll",
-        "tools/net461/System.Threading.dll",
-        "tools/net461/System.ValueTuple.dll",
-        "tools/net461/System.Xml.ReaderWriter.dll",
-        "tools/net461/System.Xml.XDocument.dll",
-        "tools/net461/System.Xml.XPath.XDocument.dll",
-        "tools/net461/System.Xml.XPath.dll",
-        "tools/net461/System.Xml.XmlDocument.dll",
-        "tools/net461/System.Xml.XmlSerializer.dll",
-        "tools/net461/netstandard.dll",
-        "tools/netcoreapp2.1/GetDocument.Insider.deps.json",
-        "tools/netcoreapp2.1/GetDocument.Insider.dll",
-        "tools/netcoreapp2.1/GetDocument.Insider.runtimeconfig.json",
-        "tools/netcoreapp2.1/System.Diagnostics.DiagnosticSource.dll"
       ]
     },
     "Microsoft.Extensions.Configuration/9.0.1": {
@@ -1448,20 +1050,6 @@
         "version.txt"
       ]
     },
-    "Microsoft.OpenApi/1.4.3": {
-      "sha512": "rURwggB+QZYcSVbDr7HSdhw/FELvMlriW10OeOzjPT7pstefMo7IThhtNtDudxbXhW+lj0NfX72Ka5EDsG8x6w==",
-      "type": "package",
-      "path": "microsoft.openapi/1.4.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.OpenApi.dll",
-        "lib/netstandard2.0/Microsoft.OpenApi.pdb",
-        "lib/netstandard2.0/Microsoft.OpenApi.xml",
-        "microsoft.openapi.1.4.3.nupkg.sha512",
-        "microsoft.openapi.nuspec"
-      ]
-    },
     "Microsoft.Win32.Registry/5.0.0": {
       "sha512": "dDoKi0PnDz31yAyETfRntsLArTlVAVzUzCIvvEDsDsucrl33Dl8pIJG06ePTJTI3tGpeyHS9Cq7Foc/s4EeKcg==",
       "type": "package",
@@ -1578,96 +1166,6 @@
         "lib/netstandard2.1/Snappier.xml",
         "snappier.1.0.0.nupkg.sha512",
         "snappier.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore/6.5.0": {
-      "sha512": "FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore/6.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Swashbuckle.AspNetCore.props",
-        "swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.Swagger/6.5.0": {
-      "sha512": "XWmCmqyFmoItXKFsQSwQbEAsjDKcxlNf1l+/Ki42hcb6LjKL8m5Db69OTvz5vLonMSRntYO1XLqz0OP+n3vKnA==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swagger/6.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net5.0/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/net5.0/Swashbuckle.AspNetCore.Swagger.pdb",
-        "lib/net5.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/net6.0/Swashbuckle.AspNetCore.Swagger.pdb",
-        "lib/net6.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "lib/net7.0/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/net7.0/Swashbuckle.AspNetCore.Swagger.pdb",
-        "lib/net7.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.pdb",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.pdb",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swagger.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.SwaggerGen/6.5.0": {
-      "sha512": "Y/qW8Qdg9OEs7V013tt+94OdPxbRdbhcEbw4NiwGvf4YBcfhL/y7qp/Mjv/cENsQ2L3NqJ2AOu94weBy/h4KvA==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggergen/6.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swaggergen.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.SwaggerUI/6.5.0": {
-      "sha512": "OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
-        "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
-        "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
-        "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
-        "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -1908,11 +1406,6 @@
         "zstdsharp.port.nuspec"
       ]
     },
-    "FlowOps.WorkFlowService.Business/1.0.0": {
-      "type": "project",
-      "path": "../FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj",
-      "msbuildProject": "../FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj"
-    },
     "FlowOps.WorkFlowService.DataLayer/1.0.0": {
       "type": "project",
       "path": "../FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj",
@@ -1926,11 +1419,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AutoMapper >= 13.0.1",
-      "FlowOps.WorkFlowService.Business >= 1.0.0",
-      "MediatR >= 12.4.1",
-      "Microsoft.AspNetCore.OpenApi >= 8.0.12",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "FlowOps.WorkFlowService.DataLayer >= 1.0.0",
+      "FlowOps.WorkFlowService.Models >= 1.0.0",
+      "MediatR >= 12.4.1"
     ]
   },
   "packageFolders": {
@@ -1939,11 +1430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
-      "projectName": "FlowOps.WorkFlowService.API",
-      "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
+      "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj",
+      "projectName": "FlowOps.WorkFlowService.Business",
+      "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj",
       "packagesPath": "/Users/ren-nasr/.nuget/packages/",
-      "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/obj/",
+      "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/goinfre/ren-nasr/FlowOps/FlowOps/NuGet.Config",
@@ -1959,8 +1450,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj"
+            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj": {
+              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.DataLayer/FlowOps.WorkFlowService.DataLayer.csproj"
+            },
+            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj": {
+              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Models/FlowOps.WorkFlowService.Models.csproj"
             }
           }
         }
@@ -1980,21 +1474,9 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[13.0.1, )"
-          },
           "MediatR": {
             "target": "Package",
             "version": "[12.4.1, )"
-          },
-          "Microsoft.AspNetCore.OpenApi": {
-            "target": "Package",
-            "version": "[8.0.12, )"
-          },
-          "Swashbuckle.AspNetCore": {
-            "target": "Package",
-            "version": "[6.5.0, )"
           }
         },
         "imports": [
@@ -2009,9 +1491,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

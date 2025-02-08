@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlowOps.WorkFlowService.DataLayer\FlowOps.WorkFlowService.DataLayer.csproj" />
+    <ProjectReference Include="..\FlowOps.WorkFlowService.Models\FlowOps.WorkFlowService.Models.csproj" />
+  </ItemGroup>
+</Project>
