@@ -1934,20 +1934,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/ren-nasr/.nuget/packages/": {}
+    "/Users/wa5ina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
+      "projectUniqueName": "/Users/wa5ina/fun/flowops/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
       "projectName": "FlowOps.WorkFlowService.API",
-      "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
-      "packagesPath": "/Users/ren-nasr/.nuget/packages/",
-      "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/obj/",
+      "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/FlowOps.WorkFlowService.API.csproj",
+      "packagesPath": "/Users/wa5ina/.nuget/packages/",
+      "outputPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/goinfre/ren-nasr/FlowOps/FlowOps/NuGet.Config",
-        "/Users/ren-nasr/.nuget/NuGet/NuGet.Config"
+        "/Users/wa5ina/fun/flowops/FlowOps/NuGet.Config",
+        "/Users/wa5ina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1959,8 +1959,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj"
+            "/Users/wa5ina/fun/flowops/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj": {
+              "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowOps.WorkFlowService/FlowOps.WorkFlowService.Business/FlowOps.WorkFlowService.Business.csproj"
             }
           }
         }
@@ -1973,8 +1973,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -2008,6 +2009,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.10, 8.0.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[8.0.10, 8.0.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.10, 8.0.10]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -2016,7 +2031,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/ren-nasr/.dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

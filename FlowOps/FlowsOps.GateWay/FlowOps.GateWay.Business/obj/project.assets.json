@@ -914,20 +914,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/ren-nasr/.nuget/packages/": {}
+    "/Users/wa5ina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/FlowOps.GateWay.Business.csproj",
+      "projectUniqueName": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/FlowOps.GateWay.Business.csproj",
       "projectName": "FlowOps.GateWay.Business",
-      "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/FlowOps.GateWay.Business.csproj",
-      "packagesPath": "/Users/ren-nasr/.nuget/packages/",
-      "outputPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/obj/",
+      "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/FlowOps.GateWay.Business.csproj",
+      "packagesPath": "/Users/wa5ina/.nuget/packages/",
+      "outputPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Business/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/goinfre/ren-nasr/FlowOps/FlowOps/NuGet.Config",
-        "/Users/ren-nasr/.nuget/NuGet/NuGet.Config"
+        "/Users/wa5ina/fun/flowops/FlowOps/NuGet.Config",
+        "/Users/wa5ina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -939,14 +939,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.MemoryService.Client/FlowOps.GateWay.MemoryService.Client.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.MemoryService.Client/FlowOps.GateWay.MemoryService.Client.csproj"
+            "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.MemoryService.Client/FlowOps.GateWay.MemoryService.Client.csproj": {
+              "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.MemoryService.Client/FlowOps.GateWay.MemoryService.Client.csproj"
             },
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj"
+            "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj": {
+              "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj"
             },
-            "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/FlowOps.GateWay.WorkFlowService.Client.csproj": {
-              "projectPath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/FlowOps.GateWay.WorkFlowService.Client.csproj"
+            "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/FlowOps.GateWay.WorkFlowService.Client.csproj": {
+              "projectPath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.WorkFlowService.Client/FlowOps.GateWay.WorkFlowService.Client.csproj"
             }
           }
         }
@@ -959,8 +959,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -986,12 +987,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.10, 8.0.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.10, 8.0.10]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/ren-nasr/.dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

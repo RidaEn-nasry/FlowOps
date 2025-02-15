@@ -4,7 +4,8 @@ using MediatR;
 namespace FlowOps.WorkFlowService.DataLayer.Domain;
 
 
-public class BaseEntity {
+public class BaseEntity
+{
 
     public IList<INotification> DomainEvents { get; set; } = [];
     public Guid Id { get; set; }
@@ -12,32 +13,39 @@ public class BaseEntity {
     public DateTimeOffset? UpdatedAt { get; set; }
     public DateTimeOffset? DeletedAt { get; set; }
 
-    public BaseEntity() {
+    public BaseEntity()
+    {
         Id = Guid.NewGuid();
         CreatedAt = DateTimeOffset.UtcNow;
     }
 
-    public void Delete() {
+    public void Delete()
+    {
         DeletedAt = DateTimeOffset.UtcNow;
     }
 
-    public void Update() {
+    public void Update()
+    {
         UpdatedAt = DateTimeOffset.UtcNow;
     }
 
-    public bool IsDeleted() {
+    public bool IsDeleted()
+    {
         return DeletedAt.HasValue;
     }
 
-    public void AddDomainEvent(INotification eventItem) {
+    public void AddDomainEvent(INotification eventItem)
+    {
         DomainEvents.Add(eventItem);
     }
 
-    public void RemoveDomainEvent(INotification eventItem) {
+    public void RemoveDomainEvent(INotification eventItem)
+    {
         DomainEvents?.Remove(eventItem);
-    } 
+    }
 
-    public void ClearDomainEvents() {
+    public void ClearDomainEvents()
+    {
         DomainEvents.Clear();
     }
 

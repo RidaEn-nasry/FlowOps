@@ -1,5 +1,7 @@
 
 
+using FlowOps.WorkFlowService.DataLayer.DomainEvents;
+
 namespace FlowOps.WorkFlowService.DataLayer.Domain;
 
 public class Workflow : BaseEntity
@@ -11,5 +13,6 @@ public class Workflow : BaseEntity
     {
         Name = name;
         Script = script;
+        AddDomainEvent(new WorkflowCreatedEvent(Id));
     }
 }

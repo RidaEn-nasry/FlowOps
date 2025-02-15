@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SuyGmuChC4o=",
+  "dgSpecHash": "vPxS+EYO9lU=",
   "success": true,
-  "projectFilePath": "/goinfre/ren-nasr/FlowOps/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/wa5ina/fun/flowops/FlowOps/FlowsOps.GateWay/FlowOps.GateWay.Models/FlowOps.GateWay.Models.csproj",
+  "expectedPackageFiles": [
+    "/Users/wa5ina/.nuget/packages/microsoft.netcore.app.ref/8.0.10/microsoft.netcore.app.ref.8.0.10.nupkg.sha512",
+    "/Users/wa5ina/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.10/microsoft.aspnetcore.app.ref.8.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

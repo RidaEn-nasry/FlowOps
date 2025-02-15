@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlowOps.WorkFlowService.DataLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+438217121510b0aca1d9688e46df8402b2cd1856")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a63df2226538185713238e13143341d8c2a22df")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlowOps.WorkFlowService.DataLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlowOps.WorkFlowService.DataLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
