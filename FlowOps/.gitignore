@@ -8,3 +8,5 @@ dist/
 *.log
 lib
 include
+.vscode
+.env

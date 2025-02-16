@@ -2,40 +2,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to Gateway",
-            "type": "debugpy",
+            "name": "Docker: Gateway",
+            "type": "docker",
             "request": "attach",
-            "connect": {
-                "host": "localhost",
-                "port": 5678
-            },
-            "pathMappings": [
+            "platform": "python",
+            "service": "gateway",
+            "sourceMaps": [
                 {
-                    "localRoot": "${workspaceFolder}/gateway",
-                    "remoteRoot": "/app"
+                    "localRoot": "${workspaceFolder}/gateway/app",
+                    "remoteRoot": "/app/app"
                 }
             ]
         },
         {
-            "name": "Attach to Workflow Service",
-            "type": "debugpy",
+            "name": "Docker: Workflow Service",
+            "type": "docker",
             "request": "attach",
-            "connect": {
-                "host": "localhost",
-                "port": 5679
-            },
-            "pathMappings": [
+            "platform": "python",
+            "service": "workflow_service",
+            "sourceMaps": [
                 {
-                    "localRoot": "${workspaceFolder}/workflow_service",
-                    "remoteRoot": "/app"
+                    "localRoot": "${workspaceFolder}/workflow_service/app",
+                    "remoteRoot": "/app/app"
                 }
             ]
-        }
-    ],
-    "compounds": [
-        {
-            "name": "All Services (Local)",
-            "configurations": ["Gateway Service", "Workflow Service"]
         }
     ]
 }

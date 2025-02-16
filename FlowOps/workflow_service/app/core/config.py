@@ -16,7 +16,6 @@ class Settings(BaseSettings):
     
     # RabbitMQ settings
     RABBITMQ_HOST: str = "rabbitmq"
-    RABBITMQ_PORT: int = 5672
     RABBITMQ_USER: str = "user"
     RABBITMQ_PASS: str = "password"
     RABBITMQ_QUEUE: str = "workflow_events"

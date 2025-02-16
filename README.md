@@ -1,6 +1,4 @@
 
-
-
 FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple Python scripts.
 It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
 
@@ -8,7 +6,7 @@ It’s LLM-native, meaning your agents can think, decide, and take action on the
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
 
-# 💪 Why FlowOps? 
+# Why FlowOps? 
 🔹 Write workflows in simple Python scripts – Infinite flexibility, no restrictive UI.
 
 🔹 LLM-native – Workflows are built around LLMs that can decide actions dynamically.
@@ -130,40 +128,43 @@ graph TD
 
 ```
 
-# How To Run FlowOps
+ 🚀 Development Setup
 
-### Prerequisites
-
-- Python 3.11+
-- Docker 20.10+
-- Docker Compose 2.20+
-
-### Development Setup
-
-1. **Fork and clone the repository**
-   ```bash
-   git clone https://github.com/RidaEn-nasry/flowops.git
-   cd flowops
-   ```
-
-2. **Set up environment variables**
+### Environment Setup
+1. Copy the example env file:
    ```bash
    cp .env.example .env
    ```
+2. Update the `.env` file with your actual credentials
 
-3. **Start development services**
-   ```bash
-   docker-compose -f docker-compose.dev.yml up --build
-   ```
+### Running with Docker
 
-4. **Initialize database (in a new terminal)**
+```bash
+docker compose -f docker-compose.dev.yml up --build
+```
+
+### Debugging in VS Code
+1. Start the services in debug mode:
    ```bash
-   docker exec -it mongo mongosh -u root -p example --eval "use flowops"
+   docker compose -f docker-compose.dev.yml up --build
    ```
+2. Open VS Code's Run and Debug view
+3. Attach to either:
+   - "Docker: Gateway" for gateway service
+   - "Docker: Workflow Service" for workflow service
+
+### Key Environment Variables
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `MONGO_CONNECTION_STRING` | MongoDB connection URL | `mongodb://user:pass@host:port` |
+| `RABBITMQ_HOST` | RabbitMQ hostname | `rabbitmq` |
+| `WORKFLOW_SERVICE_URL` | Internal workflow service URL | `http://workflow_service:8100` |
+
 
 ## How to Contribute
 
 We welcome contributions! Please follow these steps:
+
 
 ### Contribution Workflow
 

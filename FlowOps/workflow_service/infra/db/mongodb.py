@@ -10,28 +10,15 @@ class MongoDBClient:
         
     def connect(self):
         try:
-            print(f"Connecting to MongoDB with: {settings.MONGO_CONNECTION_STRING}")
             self.client = MongoClient(settings.MONGO_CONNECTION_STRING)
-            print("Pinging MongoDB...")
             self.client.admin.command('ping')
-            print(f"Accessing database: {settings.MONGO_DB_NAME}")
             self.db = self.client[settings.MONGO_DB_NAME]
-            
-            print("Checking existing databases:")
-            print(self.client.list_database_names())
-            
-            if settings.MONGO_DB_NAME not in self.client.list_database_names():
-                print("Initializing new database...")
-                self.db.workflows.insert_one({"_id": "init", "temp": True})
-                self.db.workflows.delete_one({"_id": "init"})
-                print(f"Database {settings.MONGO_DB_NAME} initialized")
-            
-            print(f"Connected to MongoDB: {self.db}")
         except ConnectionFailure as e:
             raise DatabaseError(f"Failed to connect to MongoDB: {str(e)}")
     
     def get_collection(self, name: str):
-        if self.db is None:
+        # NotImplementedError: Database objects do not implement truth value testing or bool(). Please compare with None instead: database is not None
+        if self.db is not None:
             self.connect()
         return self.db[name]
 

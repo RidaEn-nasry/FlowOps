@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from datetime import datetime
 
 class Workflow(BaseModel):
     id: str
@@ -19,5 +18,5 @@ class WorkflowResponse(BaseModel):
     id: str
     name: str
     script: str
-    created_at: datetime
-    updated_at: datetime
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None

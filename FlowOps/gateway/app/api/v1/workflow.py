@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
 from app.models.workflow import WorkflowCreate, WorkflowResponse
-from app.domain.services import WorkflowService
+from app.services.workflow import WorkflowService, WorkflowServiceError
 
 router = APIRouter(
     prefix="/workflows",
