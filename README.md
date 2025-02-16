@@ -128,7 +128,7 @@ graph TD
 
 ```
 
- 🚀 Development Setup
+#🚀 Development Setup
 
 ### Environment Setup
 1. Copy the example env file:
