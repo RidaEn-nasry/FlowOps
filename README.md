@@ -130,6 +130,8 @@ graph TD
 
 # 🚀 Development Setup
 
+This is a very early project, you'll likely find many weird things, hit me up at [twitter](http://twitter.com/ennasryRida) if u need any help in setup-ing this 
+
 ### Environment Setup
 1. Copy the example env file:
    ```bash
@@ -192,3 +194,4 @@ We welcome contributions! Please follow these steps:
 
 5. **Push and open a Pull Request**  
    Create a PR against the `main` branch with a clear description of your changes.
+
