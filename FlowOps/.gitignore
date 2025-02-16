@@ -1,3 +1,10 @@
-node_modules
-/client/node_modules
-obj/*
+__pycache__/
+*.pyc
+.env
+.venv
+bin/
+build/
+dist/
+*.log
+lib
+include

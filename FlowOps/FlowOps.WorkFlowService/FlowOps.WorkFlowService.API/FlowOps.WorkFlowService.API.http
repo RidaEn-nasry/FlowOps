@@ -1,6 +1,0 @@
-@FlowOps.WorkFlowService_HostAddress = http://localhost:5202
-
-GET {{FlowOps.WorkFlowService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

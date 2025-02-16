@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - workflow_service
+      - rabbitmq
+
+  workflow_service:
+    build: ./workflow_service
+    container_name: workflow_service
+    ports:
+      - "8100:8100"
+    depends_on:
+      - rabbitmq
+    environment:
+      MONGO_CONNECTION_STRING: mongodb://mongo:27017
+      MONGO_DB_NAME: flowops
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+volumes:
+  mongo_data: 

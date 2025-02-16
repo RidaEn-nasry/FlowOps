@@ -1,0 +1,73 @@
+version: "3.8"
+
+services:
+  gateway:
+    build: 
+      context: ./gateway
+      dockerfile: Dockerfile.dev
+    container_name: gateway
+    volumes:
+      - ./gateway:/app
+    ports:
+      - "8000:8000"
+      - "5678:5678"  # debug port
+    environment:
+      - PYTHONPATH=/app
+      - WORKFLOW_SERVICE_URL=http://workflow_service:8100
+    command: ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    depends_on:
+      - workflow_service
+
+  workflow_service:
+    build: 
+      context: ./workflow_service
+      dockerfile: Dockerfile.dev
+    container_name: workflow_service
+    volumes:
+      - ./workflow_service:/app
+    ports:
+      - "8100:8100"
+      - "5679:5679"  # debug port
+    environment:
+      - PYTHONPATH=/app
+      - MONGO_CONNECTION_STRING=mongodb://root:example@mongo:27017/?authSource=admin
+      - MONGO_DB_NAME=flowops
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USER=user
+      - RABBITMQ_PASS=password
+      - DEBUG=true
+    command: ["python", "-m", "debugpy", "--listen", "0.0.0.0:5679", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8100", "--reload"]
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+volumes:
+  mongo_data: 

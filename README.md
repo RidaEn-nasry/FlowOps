@@ -1,6 +1,12 @@
 
+
+
 FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple Python scripts.
 It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
+
 
 # 💪 Why FlowOps? 
 🔹 Write workflows in simple Python scripts – Infinite flexibility, no restrictive UI.
@@ -123,3 +129,65 @@ graph TD
 
 
 ```
+
+# How To Run FlowOps
+
+### Prerequisites
+
+- Python 3.11+
+- Docker 20.10+
+- Docker Compose 2.20+
+
+### Development Setup
+
+1. **Fork and clone the repository**
+   ```bash
+   git clone https://github.com/RidaEn-nasry/flowops.git
+   cd flowops
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Start development services**
+   ```bash
+   docker-compose -f docker-compose.dev.yml up --build
+   ```
+
+4. **Initialize database (in a new terminal)**
+   ```bash
+   docker exec -it mongo mongosh -u root -p example --eval "use flowops"
+   ```
+
+## How to Contribute
+
+We welcome contributions! Please follow these steps:
+
+### Contribution Workflow
+
+1. **Create an issue**  
+    Discuss your proposed changes by [opening an issue](https://github.com/RidaEn-nasry/flowops/issues) first.
+
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feat/your-feature-name
+   # or
+   git checkout -b fix/issue-number-description
+   ```
+
+3. **Implement your changes**  
+   Follow our coding standards:
+   - PEP8 style guide
+   - Type hints for all function signatures
+   - Docstrings for public methods
+
+4. **Commit your changes**  
+   Use [Conventional Commits](https://www.conventionalcommits.org/) style:
+   ```bash
+   git commit -m "feat: add new workflow validation"
+   ```
+
+5. **Push and open a Pull Request**  
+   Create a PR against the `main` branch with a clear description of your changes.
