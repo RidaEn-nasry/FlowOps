@@ -1,5 +1,5 @@
 
-FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple Python scripts.
+FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple javascript scripts.
 It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -7,7 +7,7 @@ It’s LLM-native, meaning your agents can think, decide, and take action on the
 
 
 # Why FlowOps? 
-🔹 Write workflows in simple Python scripts – Infinite flexibility, no restrictive UI.
+🔹 Write workflows in simple javascript scripts – Infinite flexibility, no restrictive UI.
 
 🔹 LLM-native – Workflows are built around LLMs that can decide actions dynamically.
 
@@ -21,22 +21,29 @@ It’s LLM-native, meaning your agents can think, decide, and take action on the
 
 # 🛠️ How it works under the hood (Technical Example: A Simple Slack AI Agent)
 
-```python
-@trigger(integration="slack", event="message", options={"channel": "#support"})
-def run(context):
-    # LLM figures out the intent
-    intent = ai.classify(
-        text=context.message.text, 
-        labels=["question", "feedback", "complaint"]
-    )
+```javascript
+// workflow.js
+trigger({
+  integration: "linkedin",
+  event: "resume",
+  source: "CompanyLinkedin"
+})(async (context) => {
+  // Extract key information
+  const parsed = await ai.extract({
+    prompt: "Extract full name, phone, work experience...",
+    input: context.resume
+  });
 
-    # Save the conversation in the agent’s memory
-    memory.store(
-        table="messages", 
-        workflow_id=context.workflow_id, 
-        data={"type": intent, "content": context.message.text}
-    )
-    slack.reply(context.message.channel, f"Thanks for your {intent}! Let me help.")
+  // Conduct automated interview
+  const conversationData = await ai.call(
+    parsed.phone,
+    { script: "perform a screen interview for 15 minutes..." }
+  );
+
+  // Generate and send summary
+  const summary = await ai.summarize(conversationData);
+  await email.send("hr@company.com", summary);
+});
 ```
 
 ```mermaid
