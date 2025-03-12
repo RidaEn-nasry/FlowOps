@@ -21,13 +21,16 @@ It’s LLM-native, meaning your agents can think, decide, and take action on the
 
 # 🛠️ How it works under the hood (Technical Example: A Simple Slack AI Agent)
 
-```javascript
-// workflow.js
+```
 trigger({
   integration: "linkedin",
   event: "resume",
   source: "CompanyLinkedin"
-})(async (context) => {
+})
+``
+```javascript
+// workflow.js
+async (context) => {
   // Extract key information
   const parsed = await ai.extract({
     prompt: "Extract full name, phone, work experience...",
@@ -43,7 +46,7 @@ trigger({
   // Generate and send summary
   const summary = await ai.summarize(conversationData);
   await email.send("hr@company.com", summary);
-});
+};
 ```
 
 ```mermaid
