@@ -31,4 +31,13 @@ export class WorkflowGatewayController {
     this.logger.log(`Gateway received getWorkflow request for ID: ${id}`);
     return this.gatewayService.getWorkflow(id);
   }
+
+  /**
+   * Get all workflows
+   */
+  @Get()
+  async getAllWorkflows(): Promise<WorkflowResponseDto[]> {
+    this.logger.log('Gateway received getAllWorkflows request');
+    return this.gatewayService.getAllWorkflows();
+  }
 } 

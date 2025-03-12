@@ -3,6 +3,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { WorkflowCreateDto, WorkflowResponseDto } from '../../shared/dto/workflow.dto';
+import { DatabaseDefinitionCreateDto, DatabaseDefinitionResponseDto } from '../../shared/dto/database-definition.dto';
 import { IGatewayService } from '../interfaces/gateway.interface';
 import { lastValueFrom } from 'rxjs';
 import { AxiosResponse } from 'axios';
@@ -11,13 +12,16 @@ import { AxiosResponse } from 'axios';
 export class GatewayService implements IGatewayService {
   private readonly logger = new Logger(GatewayService.name);
   private readonly workflowServiceUrl: string;
+  private readonly memoryServiceUrl: string;
 
   constructor(
     private readonly httpService: HttpService,
     private readonly configService: ConfigService
   ) {
     this.workflowServiceUrl = this.configService.get<string>('services.workflow.url') || 'http://localhost:3001';
+    this.memoryServiceUrl = this.configService.get<string>('services.memory.url') || 'http://localhost:3002';
     this.logger.log(`Workflow service URL: ${this.workflowServiceUrl}`);
+    this.logger.log(`Memory service URL: ${this.memoryServiceUrl}`);
   }
 
   /**
@@ -35,7 +39,31 @@ export class GatewayService implements IGatewayService {
         )
       );
       
-      return response.data;
+      const createdWorkflow = response.data;
+      
+      if (workflowDto.databaseColumns && workflowDto.databaseColumns.length > 0) {
+        try {
+          const databaseDefinitionDto: DatabaseDefinitionCreateDto = {
+            name: `${workflowDto.name} Database`,
+            workflowId: createdWorkflow.id,
+            columns: workflowDto.databaseColumns
+          };
+          
+          await lastValueFrom(
+            this.httpService.post<DatabaseDefinitionResponseDto>(
+              `${this.memoryServiceUrl}/api/v1/memory/databases`,
+              databaseDefinitionDto
+            )
+          );
+          
+          this.logger.log(`Created database definition for workflow ID: ${createdWorkflow.id}`);
+        } catch (error) {
+          this.logger.error(`Failed to create database definition: ${error.message}`, error.stack);
+          // Continue even if database definition creation fails
+        }
+      }
+      
+      return createdWorkflow;
     } catch (error) {
       this.handleError('Error while creating workflow', error);
     }
@@ -58,6 +86,25 @@ export class GatewayService implements IGatewayService {
       return response.data;
     } catch (error) {
       this.handleError(`Error while getting workflow with ID ${id}`, error);
+    }
+  }
+
+  /**
+   * Forward request to get all workflows
+   */
+  async getAllWorkflows(): Promise<WorkflowResponseDto[]> {
+    try {
+      this.logger.log('Forwarding getAllWorkflows request to workflow service');
+      
+      const response = await lastValueFrom(
+        this.httpService.get<WorkflowResponseDto[]>(
+          `${this.workflowServiceUrl}/api/v1/workflows`
+        )
+      );
+      
+      return response.data;
+    } catch (error) {
+      this.handleError('Error while getting all workflows', error);
     }
   }
 

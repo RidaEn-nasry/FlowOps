@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Editor from "@monaco-editor/react"
 import { PlugZap, Play, Code2, Palette, Type } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { IntegrationsPanel } from "./components/IntegrationsPanel"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
+interface WorkflowViewProps {
+    initialScript: string;
+    onUpdate: (script: string) => void;
+}
 
 const TEMPLATES = [
     {
@@ -61,10 +66,25 @@ const EDITOR_FONTS = [
     { name: "Monaco", value: "Monaco, monospace" }
 ]
 
-export default function WorkflowView() {
-    const [code, setCode] = useState(TEMPLATES[0].code)
+export default function WorkflowView({ initialScript, onUpdate }: WorkflowViewProps) {
+    const [code, setCode] = useState(initialScript || TEMPLATES[0].code)
     const [theme, setTheme] = useState("vs")
     const [font, setFont] = useState(EDITOR_FONTS[0].value)
+
+    useEffect(() => {
+        onUpdate(code)
+    }, [code, onUpdate])
+
+    const handleCodeChange = (value: string | undefined) => {
+        setCode(value || "");
+    }
+
+    const handleTemplateChange = (templateName: string) => {
+        const template = TEMPLATES.find(t => t.name === templateName);
+        if (template) {
+            setCode(template.code);
+        }
+    }
 
     return (
         <div className="h-full flex flex-col">
@@ -77,7 +97,7 @@ export default function WorkflowView() {
 
                     <div className="h-6 w-px bg-border" />
 
-                    <Select onValueChange={(template) => setCode(TEMPLATES.find(t => t.name === template)?.code || "")}>
+                    <Select onValueChange={(template) => handleTemplateChange(template)}>
                         <SelectTrigger className="w-[240px]">
                             <Code2 className="w-4 h-4 mr-2" />
                             <SelectValue placeholder="Select template" />
@@ -136,7 +156,7 @@ export default function WorkflowView() {
                         defaultLanguage="python"
                         theme={theme}
                         value={code}
-                        onChange={(value) => setCode(value || "")}
+                        onChange={(value) => handleCodeChange(value)}
                         options={{
                             minimap: { enabled: false },
                             fontSize: 14,

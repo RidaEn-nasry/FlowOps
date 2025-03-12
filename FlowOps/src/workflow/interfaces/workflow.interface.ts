@@ -15,4 +15,9 @@ export interface IWorkflowService {
    * @param id The workflow ID
    */
   getWorkflow(id: string): Promise<WorkflowResponseDto>;
+
+  /**
+   * Get all workflows
+   */
+  getAllWorkflows(): Promise<WorkflowResponseDto[]>;
 } 

@@ -9,13 +9,23 @@ export interface AppConfig {
   mongodb: {
     uri: string;
   };
+  prisma: {
+    workflow_db_url: string;
+    memory_db_url: string;
+  };
   rabbitmq: {
     uri: string;
-    exchangeName: string;
-    queueName: string;
+    exchange: string;
+    queues: {
+      workflow: string;
+      memory: string;
+    };
   };
   services: {
     workflow: {
+      url: string;
+    };
+    memory: {
       url: string;
     };
   };
@@ -38,14 +48,24 @@ export default (): AppConfig => ({
   mongodb: {
     uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/flowops',
   },
+  prisma: {
+    workflow_db_url: process.env.WORKFLOW_DATABASE_URL || 'mongodb://localhost:27017/workflow',
+    memory_db_url: process.env.MEMORY_DATABASE_URL || 'mongodb://localhost:27017/memory',
+  },
   rabbitmq: {
     uri: process.env.RABBITMQ_URI || 'amqp://localhost:5672',
-    exchangeName: process.env.RABBITMQ_EXCHANGE || 'flowops',
-    queueName: process.env.RABBITMQ_QUEUE || 'workflows',
+    exchange: process.env.RABBITMQ_EXCHANGE || 'flowops',
+    queues: {
+      workflow: process.env.RABBITMQ_QUEUE_WORKFLOW || 'workflows',
+      memory: process.env.RABBITMQ_QUEUE_MEMORY || 'memory',
+    },
   },
   services: {
     workflow: {
       url: process.env.SERVICES_WORKFLOW_URL || 'http://localhost:3001',
+    },
+    memory: {
+      url: process.env.SERVICES_MEMORY_URL || 'http://localhost:3002',
     },
   },
   cors: {

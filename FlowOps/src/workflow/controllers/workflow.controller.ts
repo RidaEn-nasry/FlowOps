@@ -30,4 +30,13 @@ export class WorkflowController {
     this.logger.log(`Getting workflow with ID: ${id}`);
     return this.workflowService.getWorkflow(id);
   }
+
+  /**
+   * Get all workflows
+   */
+  @Get()
+  async getAllWorkflows(): Promise<WorkflowResponseDto[]> {
+    this.logger.log('Getting all workflows');
+    return this.workflowService.getAllWorkflows();
+  }
 } 

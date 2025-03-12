@@ -1,0 +1,51 @@
+// This is your Prisma schema file for the memory service
+// Learn more about Prisma here: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/@prisma/memory-client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MEMORY_DATABASE_URL")
+}
+
+model DatabaseDefinition {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  workflowId String
+  columns    Column[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Column {
+  id                   String            @id @default(auto()) @map("_id") @db.ObjectId
+  name                 String
+  type                 String
+  required             Boolean           @default(false)
+  description          String?
+  options              SelectOption[]
+  databaseDefinition   DatabaseDefinition @relation(fields: [databaseDefinitionId], references: [id], onDelete: Cascade)
+  databaseDefinitionId String             @db.ObjectId
+}
+
+model SelectOption {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  label     String
+  color     String?
+  column    Column   @relation(fields: [columnId], references: [id], onDelete: Cascade)
+  columnId  String   @db.ObjectId
+}
+
+// This model will store the actual data rows for the no-code database
+model DatabaseRecord {
+  id                   String            @id @default(auto()) @map("_id") @db.ObjectId
+  databaseDefinition   DatabaseDefinition @relation(fields: [databaseDefinitionId], references: [id], onDelete: Cascade)
+  databaseDefinitionId String             @db.ObjectId
+  // Using a JSON field to store dynamic column values
+  data                 Json
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+} 

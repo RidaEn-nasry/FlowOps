@@ -3,105 +3,117 @@ version: '3.8'
 services:
   # Frontend client
   client:
-    container_name: flowops-client
+    container_name: flowops-client-dev
     build:
       context: ./client
       dockerfile: Dockerfile
-      target: production
+      target: development
     ports:
-      - "80:80"  # Production port
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
     environment:
-      - NODE_ENV=production
-      - VITE_API_URL=http://api-gateway:3000
-    restart: unless-stopped
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3000
+    command: npm run dev
     depends_on:
       - api-gateway
     networks:
-      - flowops-network
+      - flowops-network-dev
 
   # API Gateway Service
   api-gateway:
-    container_name: flowops-api-gateway
+    container_name: flowops-api-gateway-dev
     build:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./FlowOps:/app
+      - /app/node_modules
     environment:
       - APP_NAME=flowops-api
       - APP_VERSION=1.0.0
       - APP_HOST=0.0.0.0
       - APP_PORT=3000
-      - DEBUG=false
+      - DEBUG=true
       - MONGODB_URI=mongodb://mongodb:27017/flowops
       - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672
       - RABBITMQ_EXCHANGE=flowops
       - RABBITMQ_QUEUE=workflows
       - SERVICES_WORKFLOW_URL=http://workflow-service:3001
       - ALLOW_ORIGINS=*
-      - FRONTEND_URL=http://client
-    restart: unless-stopped
+      - FRONTEND_URL=http://localhost:5173
+    command: npm run start:dev
     depends_on:
       - mongodb
       - rabbitmq
       - workflow-service
     networks:
-      - flowops-network
+      - flowops-network-dev
 
   # Workflow Service
   workflow-service:
-    container_name: flowops-workflow-service
+    container_name: flowops-workflow-service-dev
     build:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
       - "3001:3001"
+    volumes:
+      - ./FlowOps:/app
+      - /app/node_modules
     environment:
       - APP_NAME=flowops-workflow-service
       - APP_VERSION=1.0.0
       - APP_HOST=0.0.0.0
       - APP_PORT=3001
-      - DEBUG=false
+      - DEBUG=true
       - MONGODB_URI=mongodb://mongodb:27017/flowops
       - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672
       - RABBITMQ_EXCHANGE=flowops
       - RABBITMQ_QUEUE=workflows
-    restart: unless-stopped
+    command: npm run start:dev
     depends_on:
       - mongodb
       - rabbitmq
     networks:
-      - flowops-network
+      - flowops-network-dev
 
   # MongoDB Service
   mongodb:
     image: mongo:latest
-    container_name: flowops-mongodb
+    container_name: flowops-mongodb-dev
+    ports:
+      - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
+      - mongodb_data_dev:/data/db
     environment:
       - MONGO_INITDB_DATABASE=flowops
-    restart: unless-stopped
     networks:
-      - flowops-network
+      - flowops-network-dev
 
   # RabbitMQ Service
   rabbitmq:
     image: rabbitmq:3-management
-    container_name: flowops-rabbitmq
+    container_name: flowops-rabbitmq-dev
+    ports:
+      - "5672:5672"
+      - "15672:15672"
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_data_dev:/var/lib/rabbitmq
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-    restart: unless-stopped
     networks:
-      - flowops-network
+      - flowops-network-dev
 
 networks:
-  flowops-network:
+  flowops-network-dev:
     driver: bridge
 
 volumes:
-  mongodb_data:
-  rabbitmq_data: 
+  mongodb_data_dev:
+  rabbitmq_data_dev: 

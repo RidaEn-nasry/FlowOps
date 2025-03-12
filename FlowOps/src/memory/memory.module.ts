@@ -1,22 +1,21 @@
 import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { WorkflowController } from './controllers/workflow.controller';
-import { HealthController } from './controllers/health.controller';
-import { WorkflowService } from './services/workflow.service';
+import { ClientsModule, Transport } from '@nestjs/microservices';
+import { MemoryService } from './services/memory.service';
+import { MemoryController } from './controllers/memory.controller';
 
 @Module({
   imports: [
     ClientsModule.registerAsync([
       {
-        name: 'WORKFLOW_SERVICE',
+        name: 'MEMORY_SERVICE',
         imports: [ConfigModule],
         inject: [ConfigService],
         useFactory: (configService: ConfigService) => ({
           transport: Transport.RMQ,
           options: {
             urls: [configService.get<string>('rabbitmq.uri') || ''],
-            queue: configService.get<string>('rabbitmq.queues.workflow') || '',
+            queue: configService.get<string>('rabbitmq.queues.memory') || '',
             queueOptions: {
               durable: true
             },
@@ -27,8 +26,8 @@ import { WorkflowService } from './services/workflow.service';
       }
     ])
   ],
-  controllers: [WorkflowController, HealthController],
-  providers: [WorkflowService],
-  exports: [WorkflowService]
+  controllers: [MemoryController],
+  providers: [MemoryService],
+  exports: [MemoryService]
 })
-export class WorkflowModule {} 
+export class MemoryModule {} 

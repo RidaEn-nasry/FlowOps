@@ -17,7 +17,8 @@ import {
     FolderOpen,
     Hash,
     ListChecks,
-    File
+    File,
+    Loader2
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -27,12 +28,12 @@ import { Card } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
+import { Column } from '@/lib/api'
+import { useToast } from '@/components/ui/use-toast'
 
-interface Column {
-    id: string
-    name: string
-    type: string
-    required?: boolean
+interface MemoryViewProps {
+    workflowName: string;
+    onUpdate: (name: string, columns: Column[]) => void;
 }
 
 const columnTypes = [
@@ -132,9 +133,9 @@ const memoryTypes = [
     }
 ]
 
-export default function MemoryView() {
-    const [workflowName, setWorkflowName] = useState("Untitled Workflow")
+export default function MemoryView({ workflowName, onUpdate }: MemoryViewProps) {
     const [isEditingName, setIsEditingName] = useState(false)
+    const [localWorkflowName, setLocalWorkflowName] = useState(workflowName)
     const [columns, setColumns] = useState<Column[]>([])
     const [newColumn, setNewColumn] = useState<Partial<Column>>({
         name: "",
@@ -142,6 +143,8 @@ export default function MemoryView() {
         required: false
     })
     const [isDialogOpen, setIsDialogOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const { toast } = useToast()
 
     const addColumn = () => {
         if (!newColumn.name) return
@@ -149,32 +152,26 @@ export default function MemoryView() {
             id: crypto.randomUUID(),
             name: newColumn.name,
             type: newColumn.type || "text",
-            required: newColumn.required
+            required: newColumn.required || false
         }
-        setColumns([...columns, column])
+        const updatedColumns = [...columns, column]
+        setColumns(updatedColumns)
         setNewColumn({ name: "", type: "text", required: false })
         setIsDialogOpen(false) // Close dialog after adding
 
-        // Here you would also make an API call to save to your database
-        saveColumnToDatabase(column)
+        // Update parent component
+        onUpdate(localWorkflowName, updatedColumns)
+
+        toast({
+            title: "Column Added",
+            description: `${column.name} column has been added to your database definition.`,
+        })
     }
 
-    const saveColumnToDatabase = async (column: Column) => {
-        try {
-            const response = await fetch('/api/columns', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(column),
-            })
-            if (!response.ok) {
-                throw new Error('Failed to save column')
-            }
-        } catch (error) {
-            console.error('Error saving column:', error)
-            // You might want to add error handling UI here
-        }
+    const handleNameChange = () => {
+        setIsEditingName(false)
+        // Update parent component
+        onUpdate(localWorkflowName, columns)
     }
 
     return (
@@ -182,16 +179,16 @@ export default function MemoryView() {
             <div className="flex items-center gap-2 mb-2">
                 {isEditingName ? (
                     <Input
-                        value={workflowName}
-                        onChange={(e) => setWorkflowName(e.target.value)}
-                        onBlur={() => setIsEditingName(false)}
-                        onKeyDown={(e) => e.key === 'Enter' && setIsEditingName(false)}
+                        value={localWorkflowName}
+                        onChange={(e) => setLocalWorkflowName(e.target.value)}
+                        onBlur={handleNameChange}
+                        onKeyDown={(e) => e.key === 'Enter' && handleNameChange()}
                         className="text-xl font-medium w-[300px]"
                         autoFocus
                     />
                 ) : (
                     <div className="flex items-center gap-2">
-                        <h1 className="text-xl font-medium">{workflowName}</h1>
+                        <h1 className="text-xl font-medium">{localWorkflowName}</h1>
                         <Button variant="ghost" size="sm" onClick={() => setIsEditingName(true)}>
                             <Pencil className="h-3 w-3" />
                         </Button>
@@ -293,7 +290,13 @@ export default function MemoryView() {
                                     colSpan={columns.length + 1}
                                     className="h-[160px] text-center text-muted-foreground text-sm"
                                 >
-                                    No data
+                                    {isLoading ? (
+                                        <div className="flex justify-center items-center h-full">
+                                            <Loader2 className="h-6 w-6 animate-spin" />
+                                        </div>
+                                    ) : (
+                                        "No data"
+                                    )}
                                 </TableCell>
                             </TableRow>
                         </TableBody>

@@ -4,6 +4,8 @@ import { APP_FILTER } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { WorkflowModule } from './workflow/workflow.module';
 import { GatewayModule } from './gateway/gateway.module';
+import { MemoryModule } from './memory/memory.module';
+import { PrismaModule } from './shared/prisma/prisma.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import configuration from './config/configuration';
 
@@ -20,8 +22,10 @@ import configuration from './config/configuration';
         uri: configService.get<string>('mongodb.uri')
       }),
     }),
+    PrismaModule,
     WorkflowModule,
-    GatewayModule
+    GatewayModule,
+    MemoryModule
   ],
   controllers: [],
   providers: [

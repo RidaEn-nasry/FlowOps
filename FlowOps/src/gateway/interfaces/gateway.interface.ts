@@ -17,6 +17,11 @@ export interface IGatewayService {
   getWorkflow(id: string): Promise<WorkflowResponseDto>;
   
   /**
+   * Forward request to get all workflows
+   */
+  getAllWorkflows(): Promise<WorkflowResponseDto[]>;
+  
+  /**
    * Get health status of all services
    */
   getHealthStatus(): Promise<Record<string, any>>;

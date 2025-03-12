@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Column } from '../../memory/schemas/database-definition.schema';
 
 /**
  * Mongoose document for Workflow
@@ -26,6 +27,16 @@ export class Workflow {
 
   @Prop({ required: true })
   script: string;
+
+  @Prop({ type: [{ 
+    id: String,
+    name: String,
+    type: String,
+    required: Boolean,
+    options: [{ id: String, label: String, color: String }],
+    description: String
+  }] })
+  databaseColumns?: Column[];
 }
 
 export const WorkflowSchema = SchemaFactory.createForClass(Workflow); 

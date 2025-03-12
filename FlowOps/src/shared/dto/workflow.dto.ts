@@ -1,4 +1,6 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString, IsArray, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { ColumnDto } from './database-definition.dto';
 
 /**
  * Base DTO for workflow data
@@ -15,6 +17,12 @@ export class WorkflowBaseDto {
   @IsNotEmpty()
   @IsString()
   script: string;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ColumnDto)
+  databaseColumns?: ColumnDto[];
 }
 
 /**
@@ -28,6 +36,12 @@ export class WorkflowCreateDto {
   @IsNotEmpty()
   @IsString()
   script: string;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ColumnDto)
+  databaseColumns?: ColumnDto[];
 }
 
 /**

@@ -1,11 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 import { ClientProxy } from '@nestjs/microservices';
 import { Inject } from '@nestjs/common';
 import { WorkflowCreateDto, WorkflowResponseDto } from '../../shared/dto/workflow.dto';
 import { IWorkflowService } from '../interfaces/workflow.interface';
-import { Workflow, WorkflowDocument } from '../schemas/workflow.schema';
+import { WorkflowPrismaService } from '../../shared/prisma/workflow-prisma.service';
 import { 
   DatabaseException, 
   WorkflowNotFoundException,
@@ -20,7 +18,7 @@ export class WorkflowService implements IWorkflowService {
   private readonly logger = new Logger(WorkflowService.name);
 
   constructor(
-    @InjectModel(Workflow.name) private workflowModel: Model<WorkflowDocument>,
+    private readonly prisma: WorkflowPrismaService,
     @Inject('WORKFLOW_SERVICE') private readonly clientProxy: ClientProxy
   ) {}
 
@@ -30,11 +28,38 @@ export class WorkflowService implements IWorkflowService {
    */
   async createWorkflow(workflowDto: WorkflowCreateDto): Promise<WorkflowResponseDto> {
     try {
-      // Create new workflow in the database
-      const createdWorkflow = new this.workflowModel(workflowDto);
-      const savedWorkflow = await createdWorkflow.save();
+      // Create new workflow in the database using Prisma
+      const databaseColumns = workflowDto.databaseColumns?.map(column => ({
+        name: column.name,
+        type: column.type,
+        required: column.required || false,
+        description: column.description,
+        options: {
+          create: column.options?.map(option => ({
+            label: option.label,
+            color: option.color
+          })) || []
+        }
+      })) || [];
 
-      const workflowResponse = savedWorkflow.toJSON() as WorkflowResponseDto;
+      const createdWorkflow = await this.prisma.workflow.create({
+        data: {
+          name: workflowDto.name,
+          script: workflowDto.script,
+          databaseColumns: {
+            create: databaseColumns
+          }
+        },
+        include: {
+          databaseColumns: {
+            include: {
+              options: true
+            }
+          }
+        }
+      });
+
+      const workflowResponse = this.mapToWorkflowResponseDto(createdWorkflow);
 
       // Publish workflow creation event
       try {
@@ -51,7 +76,7 @@ export class WorkflowService implements IWorkflowService {
         throw error;
       }
       this.logger.error(`Failed to create workflow: ${error.message}`, error.stack);
-      throw new DatabaseException(`MongoDB error: ${error.message}`);
+      throw new DatabaseException(`Prisma error: ${error.message}`);
     }
   }
 
@@ -61,19 +86,74 @@ export class WorkflowService implements IWorkflowService {
    */
   async getWorkflow(id: string): Promise<WorkflowResponseDto> {
     try {
-      const workflow = await this.workflowModel.findById(id).exec();
+      const workflow = await this.prisma.workflow.findUnique({
+        where: { id },
+        include: {
+          databaseColumns: {
+            include: {
+              options: true
+            }
+          }
+        }
+      });
 
       if (!workflow) {
         throw new WorkflowNotFoundException(id);
       }
 
-      return workflow.toJSON() as WorkflowResponseDto;
+      return this.mapToWorkflowResponseDto(workflow);
     } catch (error) {
       if (error instanceof WorkflowNotFoundException) {
         throw error;
       }
       this.logger.error(`Failed to get workflow: ${error.message}`, error.stack);
-      throw new DatabaseException(`MongoDB error: ${error.message}`);
+      throw new DatabaseException(`Prisma error: ${error.message}`);
     }
+  }
+
+  /**
+   * Get all workflows
+   */
+  async getAllWorkflows(): Promise<WorkflowResponseDto[]> {
+    try {
+      const workflows = await this.prisma.workflow.findMany({
+        include: {
+          databaseColumns: {
+            include: {
+              options: true
+            }
+          }
+        }
+      });
+      return workflows.map(workflow => this.mapToWorkflowResponseDto(workflow));
+    } catch (error) {
+      this.logger.error(`Failed to get all workflows: ${error.message}`, error.stack);
+      throw new DatabaseException(`Prisma error: ${error.message}`);
+    }
+  }
+
+  /**
+   * Map Prisma workflow model to WorkflowResponseDto
+   */
+  private mapToWorkflowResponseDto(workflow: any): WorkflowResponseDto {
+    return {
+      id: workflow.id,
+      name: workflow.name,
+      script: workflow.script,
+      databaseColumns: workflow.databaseColumns?.map(column => ({
+        id: column.id,
+        name: column.name,
+        type: column.type,
+        required: column.required,
+        description: column.description,
+        options: column.options?.map(option => ({
+          id: option.id,
+          label: option.label,
+          color: option.color
+        }))
+      })),
+      createdAt: workflow.createdAt.toISOString(),
+      updatedAt: workflow.updatedAt.toISOString()
+    };
   }
 } 
