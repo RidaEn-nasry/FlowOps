@@ -110,7 +110,7 @@ export default function WorkflowList({ onSelectWorkflow }: { onSelectWorkflow: (
                                 <div className="flex items-center justify-between text-xs">
                                     <div className="flex items-center gap-2">
                                         <span className="text-muted-foreground">
-                                            {workflow.status.charAt(0).toUpperCase() + workflow.status.slice(1)}
+                                            {workflow.status ? workflow.status.charAt(0).toUpperCase() + workflow.status.slice(1) : 'Active'}
                                         </span>
                                     </div>
                                     {workflow.cost && (
