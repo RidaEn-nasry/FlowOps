@@ -1,6 +1,4 @@
-
-FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple javascript scripts.
-It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
+FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple javascript scripts. It's Agentic, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
@@ -140,38 +138,110 @@ graph TD
 
 # 🚀 Development Setup
 
-This is a very early project, you'll likely find many weird things, hit me up at [twitter](http://twitter.com/ennasryRida) if u need any help in setup-ing this 
+FlowOps is a microservices-based application with multiple backend services and a Vue.js frontend. Here's how to set it up for development:
 
-### Environment Setup
-1. Copy the example env file:
+## Environment Setup
+
+### Using Docker (Recommended for First-Time Setup)
+
+1. Clone the repository:
    ```bash
-   cp .env.example .env
+   git clone https://github.com/RidaEn-nasry/flowops.git
+   cd flowops
    ```
-2. Update the `.env` file with your actual credentials
 
-### Running with Docker
-
-```bash
-docker compose -f docker-compose.dev.yml up --build
-```
-
-### Debugging in VS Code
-1. Start the services in debug mode:
+2. Copy the example env file:
    ```bash
-   docker compose -f docker-compose.dev.yml up --build
+   cp .env.example .env.dev
    ```
-2. Open VS Code's Run and Debug view
-3. Attach to either:
-   - "Docker: Gateway" for gateway service
-   - "Docker: Workflow Service" for workflow service
 
-### Key Environment Variables
+3. Start all services with Docker Compose:
+   ```bash
+   docker-compose -f docker-compose.dev.yml up --build
+   ```
+
+4. Access the application:
+   - Frontend: http://localhost:5173
+   - API Gateway: http://localhost:3000
+   - MongoDB UI: http://localhost:27017
+   - RabbitMQ Management: http://localhost:15672 (guest/guest)
+
+### Running Without Docker (Local Development)
+
+1. Make sure you have:
+   - Node.js 18+ installed
+   - MongoDB running locally on port 27017
+   - RabbitMQ running locally on port 5672
+
+2. Set up environment variables:
+   ```bash
+   cp .env.example .env.dev
+   ```
+
+3. Uncomment and update the local development URLs in `.env.dev` (look for the commented sections with "For non-Docker local development")
+
+4. Install dependencies and start services:
+
+   Backend:
+   ```bash
+   cd FlowOps
+   npm install
+   npm run prisma:generate  # Generate Prisma clients
+   
+   # To run all services concurrently:
+   npm run start:services
+   
+   # Or run individual services:
+   npm run start:api       # API Gateway on port 3000
+   npm run start:workflow  # Workflow Service on port 3001
+   npm run start:memory    # Memory Service on port 3002
+   ```
+
+   Frontend:
+   ```bash
+   cd client
+   npm install
+   npm run dev  # Starts the Vue dev server on port 5173
+   ```
+
+## Debugging in VS Code
+
+1. Open the project in VS Code
+
+2. For debugging the backend services:
+   - Select the "Debug API Gateway", "Debug Workflow Service", or "Debug Memory Service" configuration
+   - Or use "Debug All Services" to start all backend services in debug mode
+   - Or use "Debug Full Stack" to start both backend and frontend in debug mode
+
+3. Start the debugger by pressing F5 or clicking the green play button
+
+## Project Structure
+
+- `/FlowOps` - NestJS backend services
+  - `/src/gateway` - API Gateway service
+  - `/src/workflow` - Workflow management service
+  - `/src/memory` - Database and storage service
+  - `/prisma` - Prisma schema definitions
+
+- `/client` - Vue.js frontend application
+
+## Environment Variables
+
+All environment variables are defined in the following files:
+- `.env.dev` - Development environment variables
+- `.env.prod` - Production environment variables
+- `client/.env.development` - Frontend development variables
+- `client/.env.production` - Frontend production variables
+
+## Key Environment Variables
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `MONGO_CONNECTION_STRING` | MongoDB connection URL | `mongodb://user:pass@host:port` |
-| `RABBITMQ_HOST` | RabbitMQ hostname | `rabbitmq` |
-| `WORKFLOW_SERVICE_URL` | Internal workflow service URL | `http://workflow_service:8100` |
+| `MONGODB_URI` | MongoDB connection URL | `mongodb://mongodb:27017/flowops` |
+| `RABBITMQ_URI` | RabbitMQ connection URL | `amqp://guest:guest@rabbitmq:5672` |
+| `SERVICES_WORKFLOW_URL` | Internal workflow service URL | `http://workflow-service:3001` |
+| `SERVICES_MEMORY_URL` | Internal memory service URL | `http://memory-service:3002` |
 
+For more help, contact [Rida En-nasry](http://twitter.com/ennasryRida).
 
 ## How to Contribute
 
