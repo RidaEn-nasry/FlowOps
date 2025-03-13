@@ -86,8 +86,6 @@ services:
     container_name: flowops-mongodb
     volumes:
       - mongodb_data:/data/db
-    ports:
-      - "27017:27017"
     environment:
       - MONGO_INITDB_DATABASE=flowops
     restart: unless-stopped
