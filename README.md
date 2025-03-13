@@ -140,8 +140,7 @@ graph TD
 
 # 🚀 Development Setup
 
-PLEASE CHECK [OUR KANBAN BOARD](https://github.com/users/RidaEn-nasry/projects/2/views/1) to get an idea where we at.
-
+Please check our [Kanban Board](https://github.com/users/RidaEn-nasry/projects/2/views/1) to get an idea of where we are.
 This is a very early project, you'll likely find many weird things, hit me up at [twitter](http://twitter.com/ennasryRida) if u need any help in setup-ing this 
 
 ### Environment Setup
