@@ -138,9 +138,11 @@ graph TD
 
 # 🚀 Development Setup
 
-FlowOps is a microservices-based application with multiple backend services and a Vue.js frontend. Here's how to set it up for development:
+Please check our [Kanban Board](https://github.com/users/RidaEn-nasry/projects/2/views/1) to get an idea of where we are.
+This is a very early project, you'll likely find many weird things, hit me up at [twitter](http://twitter.com/ennasryRida) if u need any help in setup-ing this
 
-## Environment Setup
+
+FlowOps is a microservices-based application with multiple backend services powered by nestjs and reactjs as frontend. Here's how to set it up for development:
 
 ### Using Docker (Recommended for First-Time Setup)
 
