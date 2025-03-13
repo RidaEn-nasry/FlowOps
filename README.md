@@ -1,6 +1,5 @@
 
-FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple javascript scripts.
-It’s LLM-native, meaning your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
+FlowOps lets you define, automate, and run fully or semi-agentic workflows using simple javascript scripts. your agents can think, decide, and take action on their own—or they can be semi-agentic by letting you define some of their decision-making.
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
