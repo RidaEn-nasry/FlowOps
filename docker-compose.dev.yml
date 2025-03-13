@@ -13,9 +13,8 @@ services:
     volumes:
       - ./client:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - VITE_API_URL=http://localhost:3000
+    env_file:
+      - ./client/.env.dev
     command: npm run dev
     depends_on:
       - api-gateway
@@ -29,28 +28,21 @@ services:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "${API_GATEWAY_PORT:-3000}:${API_GATEWAY_PORT:-3000}"
     volumes:
       - ./FlowOps:/app
       - /app/node_modules
+    env_file:
+      - ./.env.dev
     environment:
-      - APP_NAME=flowops-api
-      - APP_VERSION=1.0.0
-      - APP_HOST=0.0.0.0
-      - APP_PORT=3000
-      - DEBUG=true
-      - MONGODB_URI=mongodb://mongodb:27017/flowops
-      - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672
-      - RABBITMQ_EXCHANGE=flowops
-      - RABBITMQ_QUEUE=workflows
-      - SERVICES_WORKFLOW_URL=http://workflow-service:3001
-      - ALLOW_ORIGINS=*
-      - FRONTEND_URL=http://localhost:5173
+      - APP_PORT=${API_GATEWAY_PORT:-3000}
+      - APP_NAME=flowops-api-gateway
     command: npm run start:dev
     depends_on:
       - mongodb
       - rabbitmq
       - workflow-service
+      - memory-service
     networks:
       - flowops-network-dev
 
@@ -61,20 +53,38 @@ services:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
-      - "3001:3001"
+      - "${WORKFLOW_SERVICE_PORT:-3001}:${WORKFLOW_SERVICE_PORT:-3001}"
     volumes:
       - ./FlowOps:/app
       - /app/node_modules
+    env_file:
+      - ./.env.dev
     environment:
+      - APP_PORT=${WORKFLOW_SERVICE_PORT:-3001}
       - APP_NAME=flowops-workflow-service
-      - APP_VERSION=1.0.0
-      - APP_HOST=0.0.0.0
-      - APP_PORT=3001
-      - DEBUG=true
-      - MONGODB_URI=mongodb://mongodb:27017/flowops
-      - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672
-      - RABBITMQ_EXCHANGE=flowops
-      - RABBITMQ_QUEUE=workflows
+    command: npm run start:dev
+    depends_on:
+      - mongodb
+      - rabbitmq
+    networks:
+      - flowops-network-dev
+
+  # Memory Service
+  memory-service:
+    container_name: flowops-memory-service-dev
+    build:
+      context: ./FlowOps
+      dockerfile: Dockerfile
+    ports:
+      - "${MEMORY_SERVICE_PORT:-3002}:${MEMORY_SERVICE_PORT:-3002}"
+    volumes:
+      - ./FlowOps:/app
+      - /app/node_modules
+    env_file:
+      - ./.env.dev
+    environment:
+      - APP_PORT=${MEMORY_SERVICE_PORT:-3002}
+      - APP_NAME=flowops-memory-service
     command: npm run start:dev
     depends_on:
       - mongodb
@@ -86,8 +96,6 @@ services:
   mongodb:
     image: mongo:latest
     container_name: flowops-mongodb-dev
-    ports:
-      - "27017:27017"
     volumes:
       - mongodb_data_dev:/data/db
     environment:
