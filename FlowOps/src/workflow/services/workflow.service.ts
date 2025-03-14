@@ -4,11 +4,13 @@ import { Inject } from '@nestjs/common';
 import { WorkflowCreateDto, WorkflowResponseDto } from '../../shared/dto/workflow.dto';
 import { IWorkflowService } from '../interfaces/workflow.interface';
 import { WorkflowPrismaService } from '../../shared/prisma/workflow-prisma.service';
+import { Column, SelectOption } from '../../memory/schemas/database-definition.schema';
 import { 
   DatabaseException, 
   WorkflowNotFoundException,
   EventPublishException
 } from '../../common/exceptions/application.exception';
+import { Workflow } from '../schemas/workflow.schema';
 
 /**
  * Service for workflow operations
@@ -29,13 +31,13 @@ export class WorkflowService implements IWorkflowService {
   async createWorkflow(workflowDto: WorkflowCreateDto): Promise<WorkflowResponseDto> {
     try {
       // Create new workflow in the database using Prisma
-      const databaseColumns = workflowDto.databaseColumns?.map(column => ({
+      const databaseColumns = workflowDto.databaseColumns?.map((column) => ({
         name: column.name,
         type: column.type,
         required: column.required || false,
         description: column.description,
         options: {
-          create: column.options?.map(option => ({
+          create: column.options?.map((option) => ({
             label: option.label,
             color: option.color
           })) || []
@@ -125,7 +127,7 @@ export class WorkflowService implements IWorkflowService {
           }
         }
       });
-      return workflows.map(workflow => this.mapToWorkflowResponseDto(workflow));
+      return workflows.map((workflow: Workflow) => this.mapToWorkflowResponseDto(workflow));
     } catch (error) {
       this.logger.error(`Failed to get all workflows: ${error.message}`, error.stack);
       throw new DatabaseException(`Prisma error: ${error.message}`);
@@ -140,13 +142,13 @@ export class WorkflowService implements IWorkflowService {
       id: workflow.id,
       name: workflow.name,
       script: workflow.script,
-      databaseColumns: workflow.databaseColumns?.map(column => ({
+      databaseColumns: workflow.databaseColumns?.map((column: Column) => ({
         id: column.id,
         name: column.name,
         type: column.type,
         required: column.required,
         description: column.description,
-        options: column.options?.map(option => ({
+        options: column.options?.map((option: SelectOption) => ({
           id: option.id,
           label: option.label,
           color: option.color
