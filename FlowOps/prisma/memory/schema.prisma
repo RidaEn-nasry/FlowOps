@@ -18,6 +18,7 @@ model DatabaseDefinition {
   columns    Column[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  databaseRecords DatabaseRecord[]
 }
 
 model Column {

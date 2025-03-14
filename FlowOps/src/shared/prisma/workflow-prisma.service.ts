@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
-import { PrismaClient } from '../../../node_modules/@prisma/workflow-client';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class WorkflowPrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {

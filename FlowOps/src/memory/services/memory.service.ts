@@ -4,6 +4,7 @@ import { ClientProxy } from '@nestjs/microservices';
 import { MemoryPrismaService } from '../../shared/prisma/memory-prisma.service';
 import { DatabaseDefinitionCreateDto, DatabaseDefinitionResponseDto } from '../../shared/dto/database-definition.dto';
 import { DatabaseException, DatabaseDefinitionNotFoundException } from '../../common/exceptions/application.exception';
+import { Column, DatabaseDefinition, SelectOption } from '../schemas/database-definition.schema';
 
 /**
  * Service for memory operations including database definitions
@@ -117,7 +118,7 @@ export class MemoryService {
           }
         }
       });
-      return databaseDefinitions.map(def => this.mapToDatabaseDefinitionResponseDto(def));
+      return databaseDefinitions.map((def: DatabaseDefinition)=> this.mapToDatabaseDefinitionResponseDto(def));
     } catch (error) {
       this.logger.error(`Failed to get database definitions by workflow ID: ${error.message}`, error.stack);
       throw new DatabaseException(`Prisma error: ${error.message}`);
@@ -132,13 +133,13 @@ export class MemoryService {
       id: dbDef.id,
       name: dbDef.name,
       workflowId: dbDef.workflowId,
-      columns: dbDef.columns?.map(column => ({
+      columns: dbDef.columns?.map((column: Column) => ({
         id: column.id,
         name: column.name,
         type: column.type,
         required: column.required,
         description: column.description,
-        options: column.options?.map(option => ({
+        options: column.options?.map((option: SelectOption) => ({
           id: option.id,
           label: option.label,
           color: option.color
