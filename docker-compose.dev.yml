@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Frontend client
   client:
-    container_name: flowops-client-dev
+    container_name: client 
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -15,80 +15,31 @@ services:
       - /app/node_modules
     env_file:
       - ./client/.env.dev
-    command: npm run dev
     depends_on:
-      - api-gateway
+      - api
     networks:
       - flowops-network-dev
 
-  # API Gateway Service
-  api-gateway:
-    container_name: flowops-api-gateway-dev
+  # API Service (Monolithic)
+  api:
+    container_name: flowops-api-dev
     build:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
-      - "${API_GATEWAY_PORT:-3000}:${API_GATEWAY_PORT:-3000}"
+      - "${APP_PORT:-3000}:${APP_PORT:-3000}"
     volumes:
       - ./FlowOps:/app
       - /app/node_modules
+      - prisma_cache:/root/.cache/prisma
     env_file:
       - ./.env.dev
     environment:
-      - APP_PORT=${API_GATEWAY_PORT:-3000}
-      - APP_NAME=flowops-api-gateway
-    command: npm run start:dev
+      - APP_PORT=${APP_PORT:-3000}
+      - APP_NAME=${APP_NAME:-flowops}-api
+      - NODE_ENV=development
     depends_on:
       - mongodb
-      - rabbitmq
-      - workflow-service
-      - memory-service
-    networks:
-      - flowops-network-dev
-
-  # Workflow Service
-  workflow-service:
-    container_name: flowops-workflow-service-dev
-    build:
-      context: ./FlowOps
-      dockerfile: Dockerfile
-    ports:
-      - "${WORKFLOW_SERVICE_PORT:-3001}:${WORKFLOW_SERVICE_PORT:-3001}"
-    volumes:
-      - ./FlowOps:/app
-      - /app/node_modules
-    env_file:
-      - ./.env.dev
-    environment:
-      - APP_PORT=${WORKFLOW_SERVICE_PORT:-3001}
-      - APP_NAME=flowops-workflow-service
-    command: npm run start:dev
-    depends_on:
-      - mongodb
-      - rabbitmq
-    networks:
-      - flowops-network-dev
-
-  # Memory Service
-  memory-service:
-    container_name: flowops-memory-service-dev
-    build:
-      context: ./FlowOps
-      dockerfile: Dockerfile
-    ports:
-      - "${MEMORY_SERVICE_PORT:-3002}:${MEMORY_SERVICE_PORT:-3002}"
-    volumes:
-      - ./FlowOps:/app
-      - /app/node_modules
-    env_file:
-      - ./.env.dev
-    environment:
-      - APP_PORT=${MEMORY_SERVICE_PORT:-3002}
-      - APP_NAME=flowops-memory-service
-    command: npm run start:dev
-    depends_on:
-      - mongodb
-      - rabbitmq
     networks:
       - flowops-network-dev
 
@@ -98,23 +49,10 @@ services:
     container_name: flowops-mongodb-dev
     volumes:
       - mongodb_data_dev:/data/db
+    ports:
+      - "27017:27017"
     environment:
       - MONGO_INITDB_DATABASE=flowops
-    networks:
-      - flowops-network-dev
-
-  # RabbitMQ Service
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: flowops-rabbitmq-dev
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    volumes:
-      - rabbitmq_data_dev:/var/lib/rabbitmq
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
     networks:
       - flowops-network-dev
 
@@ -124,4 +62,4 @@ networks:
 
 volumes:
   mongodb_data_dev:
-  rabbitmq_data_dev: 
+  prisma_cache: 

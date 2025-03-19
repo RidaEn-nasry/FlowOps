@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 import * as dotenv from 'dotenv';
@@ -8,8 +8,16 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 async function bootstrap() {
+  const logger = new Logger('Bootstrap');
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  
+  // Application info
+  const appName = configService.get<string>('app.name');
+  const appVersion = configService.get<string>('app.version');
+  const environment = configService.get<string>('app.environment');
+  
+  logger.log(`Starting ${appName} v${appVersion} in ${environment} mode`);
   
   // Enable validation
   app.useGlobalPipes(new ValidationPipe({
@@ -31,7 +39,7 @@ async function bootstrap() {
   const port = configService.get<number>('app.port') || 3000;
   
   await app.listen(port, host);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  logger.log(`Application is running on: ${await app.getUrl()}`);
 }
 
 bootstrap(); 

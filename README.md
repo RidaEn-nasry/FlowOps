@@ -17,6 +17,19 @@ FlowOps lets you define, automate, and run fully or semi-agentic workflows using
 
 🔹 Open-Source & Extensible – Modify, contribute, and expand however you need.
 
+# 🏗️ Architecture
+
+FlowOps uses a modular monolithic architecture, combining the simplicity of a monolith with the organization of a modular system:
+
+- **Single Codebase**: All components are in one repository and deployed as a single unit
+- **Modular Design**: Code is organized into logical modules (workflow, memory) with clear boundaries
+- **Shared Resources**: Modules share database connections and infrastructure
+- **Simplified Development**: Easy to understand, develop, and deploy
+- **Clear Domain Boundaries**: Each module focuses on a specific business domain
+- **Future Flexibility**: Structured to potentially split into microservices if needed later
+
+This approach provides the best balance between developer experience, deployment simplicity, and system reliability.
+
 # 🛠️ How it works under the hood (Technical Example: A Simple Slack AI Agent)
 
 ```
@@ -142,13 +155,13 @@ Please check our [Kanban Board](https://github.com/users/RidaEn-nasry/projects/2
 This is a very early project, you'll likely find many weird things, hit me up at [twitter](http://twitter.com/ennasryRida) if u need any help in setup-ing this
 
 
-FlowOps is a microservices-based application with multiple backend services powered by nestjs and reactjs as frontend. Here's how to set it up for development:
+FlowOps is built with a modern monolithic architecture, with a NestJS backend and React frontend. Here's how to set it up for development:
 
 ### Using Docker (Recommended for First-Time Setup)
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/RidaEn-nasry/flowops.git
+   ```
+   git clone https://github.com/yourusername/flowops.git
    cd flowops
    ```
 
@@ -157,30 +170,32 @@ FlowOps is a microservices-based application with multiple backend services powe
    cp .env.example .env.dev
    ```
 
-3. Start all services with Docker Compose:
+3. Start the application with Docker Compose:
    ```bash
    docker-compose -f docker-compose.dev.yml up --build
    ```
 
 4. Access the application:
    - Frontend: http://localhost:5173
-   - API Gateway: http://localhost:3000
-   - MongoDB UI: http://localhost:27017
-   - RabbitMQ Management: http://localhost:15672 (guest/guest)
+   - API: http://localhost:3000
+   - MongoDB: http://localhost:27017
 
 ### Running Without Docker (Local Development)
 
 1. Make sure you have:
    - Node.js 18+ installed
    - MongoDB running locally on port 27017
-   - RabbitMQ running locally on port 5672
 
 2. Set up environment variables:
    ```bash
    cp .env.example .env.dev
    ```
 
-3. Uncomment and update the local development URLs in `.env.dev` (look for the commented sections with "For non-Docker local development")
+3. Update the MongoDB connection in `.env.dev` if needed:
+   ```
+   MONGODB_URI=mongodb://localhost:27017/flowops
+   DATABASE_URL=mongodb://localhost:27017/flowops
+   ```
 
 4. Install dependencies and start services:
 
@@ -188,72 +203,51 @@ FlowOps is a microservices-based application with multiple backend services powe
    ```bash
    cd FlowOps
    npm install
-   npm run prisma:generate  # Generate Prisma clients
-   
-   # To run all services concurrently:
-   npm run start:services
-   
-   # Or run individual services:
-   npm run start:api       # API Gateway on port 3000
-   npm run start:workflow  # Workflow Service on port 3001
-   npm run start:memory    # Memory Service on port 3002
+   npm run prisma:generate  # Generate Prisma client
+   npm run start:dev        # Start the API server
    ```
 
    Frontend:
    ```bash
    cd client
    npm install
-   npm run dev  # Starts the Vue dev server on port 5173
+   npm run dev  # Starts the dev server on port 5173
    ```
-
-## Debugging in VS Code
-
-1. Open the project in VS Code
-
-2. For debugging the backend services:
-   - Select the "Debug API Gateway", "Debug Workflow Service", or "Debug Memory Service" configuration
-   - Or use "Debug All Services" to start all backend services in debug mode
-   - Or use "Debug Full Stack" to start both backend and frontend in debug mode
-
-3. Start the debugger by pressing F5 or clicking the green play button
 
 ## Project Structure
 
-- `/FlowOps` - NestJS backend services
-  - `/src/gateway` - API Gateway service
-  - `/src/workflow` - Workflow management service
-  - `/src/memory` - Database and storage service
+- `/FlowOps` - NestJS backend application
+  - `/src/workflow` - Workflow management module
+  - `/src/memory` - Database and storage module
+  - `/src/shared` - Shared utilities and services
   - `/prisma` - Prisma schema definitions
 
-- `/client` - Vue.js frontend application
+- `/client` - Frontend application
 
 ## Environment Variables
 
 All environment variables are defined in the following files:
 - `.env.dev` - Development environment variables
 - `.env.prod` - Production environment variables
-- `client/.env.development` - Frontend development variables
-- `client/.env.production` - Frontend production variables
+- `client/.env.dev` - Frontend development variables
+- `client/.env.prod` - Frontend production variables
 
 ## Key Environment Variables
 | Variable | Description | Example |
 |----------|-------------|---------|
+| `APP_PORT` | API server port | `3000` |
 | `MONGODB_URI` | MongoDB connection URL | `mongodb://mongodb:27017/flowops` |
-| `RABBITMQ_URI` | RabbitMQ connection URL | `amqp://guest:guest@rabbitmq:5672` |
-| `SERVICES_WORKFLOW_URL` | Internal workflow service URL | `http://workflow-service:3001` |
-| `SERVICES_MEMORY_URL` | Internal memory service URL | `http://memory-service:3002` |
-
-For more help, contact [Rida En-nasry](http://twitter.com/ennasryRida).
+| `DATABASE_URL` | Prisma database URL | `mongodb://mongodb:27017/flowops` |
+| `FRONTEND_URL` | Frontend application URL | `http://localhost:5173` |
 
 ## How to Contribute
 
 We welcome contributions! Please follow these steps:
 
-
 ### Contribution Workflow
 
 1. **Create an issue**  
-    Discuss your proposed changes by [opening an issue](https://github.com/RidaEn-nasry/flowops/issues) first.
+   Discuss your proposed changes by opening an issue first.
 
 2. **Create a feature branch**
    ```bash
@@ -264,16 +258,15 @@ We welcome contributions! Please follow these steps:
 
 3. **Implement your changes**  
    Follow our coding standards:
-   - PEP8 style guide
-   - Type hints for all function signatures
-   - Docstrings for public methods
+   - ESLint rules
+   - Type annotations
+   - Documentation for public APIs
 
 4. **Commit your changes**  
-   Use [Conventional Commits](https://www.conventionalcommits.org/) style:
+   Use Conventional Commits style:
    ```bash
    git commit -m "feat: add new workflow validation"
    ```
 
 5. **Push and open a Pull Request**  
    Create a PR against the `main` branch with a clear description of your changes.
-

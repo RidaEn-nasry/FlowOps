@@ -1,7 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Inject } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
-import { MemoryPrismaService } from '../../shared/prisma/memory-prisma.service';
+import { PrismaService } from '../../shared/prisma/prisma.service';
 import { DatabaseDefinitionCreateDto, DatabaseDefinitionResponseDto } from '../../shared/dto/database-definition.dto';
 import { DatabaseException, DatabaseDefinitionNotFoundException } from '../../common/exceptions/application.exception';
 import { Column, DatabaseDefinition, SelectOption } from '../schemas/database-definition.schema';
@@ -14,8 +12,7 @@ export class MemoryService {
   private readonly logger = new Logger(MemoryService.name);
 
   constructor(
-    private readonly prisma: MemoryPrismaService,
-    @Inject('MEMORY_SERVICE') private readonly clientProxy: ClientProxy
+    private readonly prisma: PrismaService
   ) {}
 
   /**
@@ -55,19 +52,11 @@ export class MemoryService {
         }
       });
 
-      const databaseDefinitionResponse = this.mapToDatabaseDefinitionResponseDto(createdDatabaseDefinition);
-
-      // Publish database definition creation event
-      try {
-        await this.clientProxy.emit('database.created', databaseDefinitionResponse).toPromise();
-        this.logger.log(`Published database.created event for database definition ID: ${databaseDefinitionResponse.id}`);
-      } catch (error) {
-        this.logger.error(`Failed to publish database.created event: ${error.message}`, error.stack);
-      }
-      return databaseDefinitionResponse;
+      // Return transformed response
+      return this.mapToDatabaseDefinitionResponseDto(createdDatabaseDefinition);
     } catch (error) {
-      this.logger.error(`Failed to create database definition: ${error.message}`, error.stack);
-      throw new DatabaseException(`Prisma error: ${error.message}`);
+      this.logger.error(`Error creating database definition: ${error.message}`, error.stack);
+      throw new DatabaseException(`Failed to create database definition: ${error.message}`);
     }
   }
 
@@ -118,7 +107,7 @@ export class MemoryService {
           }
         }
       });
-      return databaseDefinitions.map((def: DatabaseDefinition)=> this.mapToDatabaseDefinitionResponseDto(def));
+      return databaseDefinitions.map((def: any) => this.mapToDatabaseDefinitionResponseDto(def));
     } catch (error) {
       this.logger.error(`Failed to get database definitions by workflow ID: ${error.message}`, error.stack);
       throw new DatabaseException(`Prisma error: ${error.message}`);
@@ -133,13 +122,13 @@ export class MemoryService {
       id: dbDef.id,
       name: dbDef.name,
       workflowId: dbDef.workflowId,
-      columns: dbDef.columns?.map((column: Column) => ({
+      columns: dbDef.columns?.map((column: any) => ({
         id: column.id,
         name: column.name,
         type: column.type,
         required: column.required,
         description: column.description,
-        options: column.options?.map((option: SelectOption) => ({
+        options: column.options?.map((option: any) => ({
           id: option.id,
           label: option.label,
           color: option.color

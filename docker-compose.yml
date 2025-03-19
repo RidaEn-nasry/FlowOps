@@ -14,69 +14,27 @@ services:
       - ./client/.env.prod
     restart: unless-stopped
     depends_on:
-      - api-gateway
+      - api
     networks:
       - flowops-network
 
-  # API Gateway Service
-  api-gateway:
-    container_name: flowops-api-gateway
+  # API 
+  api:
+    container_name: flowops-api
     build:
       context: ./FlowOps
       dockerfile: Dockerfile
     ports:
-      - "${API_GATEWAY_PORT:-3000}:${API_GATEWAY_PORT:-3000}"
+      - "${APP_PORT:-3000}:${APP_PORT:-3000}"
     env_file:
       - ./.env.prod
     environment:
-      - APP_PORT=${API_GATEWAY_PORT:-3000}
-      - APP_NAME=flowops-api-gateway
+      - APP_PORT=${APP_PORT:-3000}
+      - APP_NAME=flowops-api
+      - NODE_ENV=production
     restart: unless-stopped
     depends_on:
       - mongodb
-      - rabbitmq
-      - workflow-service
-      - memory-service
-    networks:
-      - flowops-network
-
-  # Workflow Service
-  workflow-service:
-    container_name: flowops-workflow-service
-    build:
-      context: ./FlowOps
-      dockerfile: Dockerfile
-    ports:
-      - "${WORKFLOW_SERVICE_PORT:-3001}:${WORKFLOW_SERVICE_PORT:-3001}"
-    env_file:
-      - ./.env.prod
-    environment:
-      - APP_PORT=${WORKFLOW_SERVICE_PORT:-3001}
-      - APP_NAME=flowops-workflow-service
-    restart: unless-stopped
-    depends_on:
-      - mongodb
-      - rabbitmq
-    networks:
-      - flowops-network
-
-  # Memory Service
-  memory-service:
-    container_name: flowops-memory-service
-    build:
-      context: ./FlowOps
-      dockerfile: Dockerfile
-    ports:
-      - "${MEMORY_SERVICE_PORT:-3002}:${MEMORY_SERVICE_PORT:-3002}"
-    env_file:
-      - ./.env.prod
-    environment:
-      - APP_PORT=${MEMORY_SERVICE_PORT:-3002}
-      - APP_NAME=flowops-memory-service
-    restart: unless-stopped
-    depends_on:
-      - mongodb
-      - rabbitmq
     networks:
       - flowops-network
 
@@ -92,26 +50,9 @@ services:
     networks:
       - flowops-network
 
-  # RabbitMQ Service
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: flowops-rabbitmq
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
-    restart: unless-stopped
-    networks:
-      - flowops-network
-
 networks:
   flowops-network:
     driver: bridge
 
 volumes:
   mongodb_data:
-  rabbitmq_data: 

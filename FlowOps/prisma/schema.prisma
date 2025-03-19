@@ -1,20 +1,32 @@
-// This is your Prisma schema file for the memory service
-// Learn more about Prisma here: https://pris.ly/d/prisma-schema
+// FlowOps Consolidated Prisma Schema
+// Combines schema for workflow and memory in a monolithic approach
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../node_modules/@prisma/memory-client"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
 }
 
 datasource db {
   provider = "mongodb"
-  url      = env("MEMORY_DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
+// Workflow Models
+model Workflow {
+  id                String             @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  script            String
+  databaseDefinitions DatabaseDefinition[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+// Memory Models
 model DatabaseDefinition {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   name       String
-  workflowId String
+  workflow   Workflow @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  workflowId String   @db.ObjectId
   columns    Column[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
@@ -40,7 +52,7 @@ model SelectOption {
   columnId  String   @db.ObjectId
 }
 
-// This model will store the actual data rows for the no-code database
+// This model stores the actual data rows for the no-code database
 model DatabaseRecord {
   id                   String            @id @default(auto()) @map("_id") @db.ObjectId
   databaseDefinition   DatabaseDefinition @relation(fields: [databaseDefinitionId], references: [id], onDelete: Cascade)
